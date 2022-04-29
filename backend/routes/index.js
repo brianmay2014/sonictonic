@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const apiRouter = require("./api");
 //all of the urls of the routes in the api router will be prefixed with /api
 router.use("/api", apiRouter);
