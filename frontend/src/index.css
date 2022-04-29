@@ -1,8 +1,6 @@
 @import url('./theme.css');
-/* :root {
-    --midblue: #006BB8;
-} */
-/* TODO Add site wide styles */
+
+
 .btn {
     background-color: var(--midblue);
     color: white;
@@ -13,4 +11,14 @@
 
 .form-errors {
     color: red;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+a:visited {
+    color: var(--visitedlink);
 }

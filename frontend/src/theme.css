@@ -2,6 +2,12 @@
     font-family: Helvetica, Arial, sans-serif;
     background-color: var(--lightbg);
 
+    --lightestpurple: #F9E3FF;
+    --lightestindigo: #DFDCF5;
+    --lightestblue: #F1F8FD;
+    --lightestfoam: #CFE6DF;
+    --lightestgreen: #E5FEE4;
+
     --lightpurple: #764878;
     --lightindigo: #7665A6;
     --lightblue: #5F748F;
@@ -16,7 +22,7 @@
 
     --darkpurple: #3B0C40;
     --darkindigo: #28166E;
-    --darkblue: #163557;
+    --darkblue: rgb(22, 53, 87);
     --darkfoam: #166E5E;
     --darkgreen: #14631B;
 
@@ -27,5 +33,7 @@
     --darkestgreen: #063309;
 
     --lightbg: #F1F8FD;
+
+    --visitedlink: #D5DCE0;
 
 }

@@ -2,18 +2,29 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 600px;
+    height: fit-content;
     justify-content: space-between;
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: 2px solid var(--midblue);
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px var(--lightblue);
+    width: 30%;
+    margin: 100px auto ;
 }
 label {
     display:flex;
     flex-direction: column;
     align-items: center;
+    color: var(--darkblue)
 }
 html {
     display: flex;
     flex-direction: column;
    
+}
+input {
+    margin-bottom: 30px;
+}
+
+button {
+    margin-bottom: 30px;
 }

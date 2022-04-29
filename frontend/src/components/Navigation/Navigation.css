@@ -1,3 +1,41 @@
 .profile-fa-icon {
     /* color: green; */
 }
+
+.top-bar {
+    background-color: var(--darkblue);
+    z-index: 1;
+    width: 60%;
+    height: 7px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+}
+nav {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    list-style: none;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: var(--lightblue);
+    padding: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.profile-dropdown{
+    position: fixed;
+    list-style: none;
+    background-color: var(--darkblue);
+    color: var(--lightbg);
+    border-radius: 15px;
+    padding: 10px;
+    /* font-size: 13px; */
+}
+
+.login-links{
+    display: flex;
+    justify-content: space-evenly;
+    width: 150px;
+}
