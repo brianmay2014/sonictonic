@@ -1,6 +1,3 @@
-.profile-fa-icon {
-    /* color: green; */
-}
 
 .top-bar {
     background-color: var(--darkblue);
@@ -14,7 +11,7 @@
 nav {
     display: flex;
     width: 60%;
-    align-items: center;
+    height: 30px;
     list-style: none;
     justify-content: space-between;
     margin: 0 auto;
@@ -27,6 +24,8 @@ nav {
 .profile-dropdown{
     position: fixed;
     list-style: none;
+    top: -10px;
+    right: 5%;
     background-color: var(--darkblue);
     color: var(--lightbg);
     border-radius: 15px;
