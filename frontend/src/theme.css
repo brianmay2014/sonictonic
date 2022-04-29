@@ -1,0 +1,31 @@
+:root {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: var(--lightbg);
+
+    --lightpurple: #764878;
+    --lightindigo: #7665A6;
+    --lightblue: #5F748F;
+    --lightfoam: #65A59E;
+    --lightgreen: #5F9C68;
+
+    --midpurple: #66156E;
+    --midindigo: #381F9C;
+    --midblue: #215185;
+    --midfoam: #1F9C86;
+    --midgreen: #1d9128;
+
+    --darkpurple: #3B0C40;
+    --darkindigo: #28166E;
+    --darkblue: #163557;
+    --darkfoam: #166E5E;
+    --darkgreen: #14631B;
+
+    --darkestpurple: #070108;
+    --darkestindigo: #0f0636;
+    --darkestblue: #05121f;
+    --darkestfoam: #06362c;
+    --darkestgreen: #063309;
+
+    --lightbg: #F1F8FD;
+
+}
