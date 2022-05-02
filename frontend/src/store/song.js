@@ -12,6 +12,7 @@ const getSong = song => {
 };
 
 const getSongList = (songs) => {
+    console.log('inside get all songs');
     return {
         type: GET_ALL_SONGS,
         payload: songs,
@@ -41,6 +42,7 @@ const initialState = { songs: null };
 
 const songReducer = (state = initialState, action) => {
     let newState;
+    console.log('action',action);
     switch (action.type) {
         case GET_ALL_SONGS:
             newState = {...state};
