@@ -32,7 +32,7 @@ function App() {
 						<SignupFormPage />
 					</Route>
 					<Route path="/cabinet">
-						{/* <SongSquare /> */}
+						<SongSquare />
 						{/* <FilterCabinet />
             <CabinetDisplay /> */}
 					</Route>

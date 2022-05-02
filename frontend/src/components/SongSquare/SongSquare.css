@@ -1,0 +1,37 @@
+.album-art-square {
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+}
+.song-square {
+    width: 150px;
+    border: 0.5px transparent solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+.song-square:hover {
+    box-shadow: 1px 1px 2px var(--lightblue);
+    border: 0.5px var(--lightblue) solid;
+
+}
+
+
+ h4 {
+     margin: 0;
+     margin-top: 10px;
+     height: 2em;
+     color: var(--darkblue);
+ }
+
+ h5 {
+    height: 2em;
+    text-align: center; 
+    margin: 0;
+    color: var(--lightblue);
+    font-weight: 300;
+ }

@@ -17,8 +17,8 @@ nav {
     margin: 0 auto;
     background-color: var(--lightblue);
     padding: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .profile-dropdown{
@@ -28,7 +28,7 @@ nav {
     right: 5%;
     background-color: var(--darkblue);
     color: var(--lightbg);
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 10px;
     /* font-size: 13px; */
 }

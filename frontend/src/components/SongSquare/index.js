@@ -1,14 +1,15 @@
 import React from 'react';
+import './SongSquare.css';
 
-const song = {
-    url: "https://sonictonicsongseeders.s3.us-west-1.amazonaws.com/sonictonicseeder/UltraMono/01War.mp3",
-    username: "IDLES",
-    songName: "War",
-    albumName: "Ultra Mono",
-	imageUrl: "https://media.pitchfork.com/photos/5f6ce8e1ffb0eebbb428ceff/1:1/w_600/ultra%20mono_idles.jpg",
-};
 
-function SongSquare({song}) {
+function SongSquare( ) {
+    const song = {
+        url: "https://sonictonicsongseeders.s3.us-west-1.amazonaws.com/sonictonicseeder/UltraMono/01War.mp3",
+        username: "IDLES",
+        songName: "War",
+        albumName: "Ultra Mono",
+        imageUrl: "https://media.pitchfork.com/photos/5f6ce8e1ffb0eebbb428ceff/1:1/w_600/ultra%20mono_idles.jpg",
+    };
 
     return (
 		<div className="song-square">
