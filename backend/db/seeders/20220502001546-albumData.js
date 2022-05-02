@@ -13,7 +13,7 @@ module.exports = {
 		[
 			{
 				userId: 4,
-				title: "Ultra Mono",
+				albumName: "Ultra Mono",
 				imageUrl:
 					"https://media.pitchfork.com/photos/5f6ce8e1ffb0eebbb428ceff/1:1/w_600/ultra%20mono_idles.jpg",
 				createdAt: new Date(),
@@ -21,14 +21,14 @@ module.exports = {
 			},
 			{
 				userId: 5,
-				title: "At Home With Owen",
+				albumName: "At Home With Owen",
 				imageUrl: "https://f4.bcbits.com/img/a3137103707_10.jpg",
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},
 			{
 				userId: 6,
-				title: "Discovery",
+				albumName: "Discovery",
 				imageUrl:
 					"https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png",
 				createdAt: new Date(),
@@ -36,7 +36,7 @@ module.exports = {
 			},
 			{
 				userId: 7,
-				title: "Troupeau Bleu",
+				albumName: "Troupeau Bleu",
 				imageUrl:
 					"https://e.snmc.io/i/600/s/e159d4c9747c379f69e7722909e85458/7124481/cortex-troupeau-bleu-Cover-Art.jpg",
 				createdAt: new Date(),
@@ -44,7 +44,7 @@ module.exports = {
 			},
 			{
 				userId: 8,
-				title: "Pink Strat",
+				albumName: "Pink Strat",
 				imageUrl:
 					"https://americansongwriter.com/wp-content/uploads/2011/05/51GWpYHvczL.jpg",
 				createdAt: new Date(),

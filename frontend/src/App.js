@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import SongSquare from './components/SongSquare';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,16 +32,17 @@ function App() {
 						<SignupFormPage />
 					</Route>
 					<Route path="/cabinet">
+						{/* <SongSquare /> */}
 						{/* <FilterCabinet />
             <CabinetDisplay /> */}
 					</Route>
 					<Route path="/upload">
 						{/* <TrackNavButtons />
-            <CabinetDisplay /> */}
+            <UploadForm /> */}
 					</Route>
 					<Route path="/yourtracks">
 						{/* <TrackNavButtons />
-            <UploadForm /> */}
+            <YourTrackList /> */}
 					</Route>
           <Route path="/song/:songId">
             {/* <BigPlayer />

@@ -13,7 +13,7 @@ module.exports = {
 			type: Sequelize.INTEGER,
       references: { model: "Users"},
 		},
-		title: {
+		albumName: {
 			allowNull: false,
 			type: Sequelize.STRING,
 		},

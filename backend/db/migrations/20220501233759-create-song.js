@@ -27,7 +27,7 @@ module.exports = {
 			type: Sequelize.INTEGER,
 			references: { model : "Genres" },
 		},
-		title: {
+		songName: {
 			allowNull: false,
 			type: Sequelize.STRING,
 		},

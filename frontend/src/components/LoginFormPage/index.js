@@ -16,6 +16,20 @@ function LoginFormPage() {
     //uf there is already a sessionUser in the store, redirect to home page
 	if (sessionUser) return <Redirect to="/" />;
 
+
+	const handleDemoLogin = (e) => {
+		e.preventDefault();
+		
+		//log in the demo user
+		return dispatch(sessionActions.login( { credential: "Demo", password: "password" })).catch(
+			async (res) => {
+				const data = await res.json();
+				if (data && data.errors) setErrors(data.errors);
+			}
+		);
+
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -55,9 +69,15 @@ function LoginFormPage() {
 					required
 				/>
 			</label>
-			<button class="btn" type="submit">
+			<div>
+			<button class="btn login-btn" type="submit">
 				Log In
 			</button>
+			<button class="btn login-btn" onClick={handleDemoLogin}>
+				Demo Login
+			</button>
+
+			</div>
 		</form>
 	);
 }
