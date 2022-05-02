@@ -3,12 +3,12 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
-// import * as songActions from './store/song';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
-import SongSquare from './components/SongSquare';
 import CabinetDisplay from './components/CabinetDisplay';
+import TrackNavButtons from './components/Upload/NavTrackButtons';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -38,16 +38,16 @@ function App() {
             			<CabinetDisplay />
 					</Route>
 					<Route path="/upload">
-						{/* <TrackNavButtons />
-            <UploadForm /> */}
+						<TrackNavButtons />
+            {/* <UploadForm /> */}
 					</Route>
 					<Route path="/yourtracks">
-						{/* <TrackNavButtons />
-            <YourTrackList /> */}
+						<TrackNavButtons />
+            {/* <YourTrackList /> */}
 					</Route>
           <Route path="/song/:songId">
-            {/* <BigPlayer />
-            <SongComments /> */}
+            {/* <BigPlayer /> */}
+            {/* <SongComments /> */}
           </Route>
 				</Switch>
 			)}

@@ -1,0 +1,22 @@
+.track-nav-buttons {
+    display:flex;
+    justify-content: space-around;
+    width: 250px;
+    background-color: var(--darkblue);
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.track-nav-buttons li {
+    list-style: none;
+    padding: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.active#up-button,.active#your-button{
+    background-color:white;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--darkblue);
+}
