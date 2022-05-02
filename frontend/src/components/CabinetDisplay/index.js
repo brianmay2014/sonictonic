@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import SongSquare from '../SongSquare';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllSongs } from '../../store/song';
-import { Link } from 'react-router-dom';
 
+import './CabinetDisplay.css';
 
 function CabinetDisplay() {
 
