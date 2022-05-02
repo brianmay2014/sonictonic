@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getAllGenres } from "../../store/song";
+// import { restoreUser } from "../../store/session";
+import { createSong } from "../../store/song";
 
 // get stuff from the store - create song for example
 
@@ -14,38 +16,40 @@ const UploadForm = () => {
 	const [songUrl, setSongUrl] = useState("");
 	const [albumName, setAlbumName] = useState("");
 	const [albumArt, setAlbumArt] = useState("");
-    const [genre, setGenre] = useState("");
+    const [genre, setGenre] = useState("Alternative Rock");
 
+    const history = useHistory();
 	const dispatch = useDispatch();
 	const genreList = useSelector((state) => state.song.genres);
+    const currentUser = useSelector((state) => state.session.user.id);
 
 	useEffect(() => {
 		dispatch(getAllGenres());
+        // dispatch(restoreUser());
 	}, [dispatch]);
 
 
     const handleSubmit = async (e) => {
-        e.preventDeafult();
+        e.preventDefault();
 
-        // newSong = {
-        //     id,
-        //     userId,
-        //     url,
-        //     albumId,
-        //     genreId,
-        //     songName,
-        //     createdAt,
-        //     updatedAt
-        // }
-    
-        // newAlbum = {
-        //     id,
-        //     userId,
-        //     albumName,
-        //     imageUrl,
-        //     createdAt,
-        //     updatedAt
-        // }
+        let genreArr= genreList.map(genre => {
+            return genre.genreName;
+        })
+        // console.log(genreArr);
+
+        console.log('user', currentUser);
+        const genreId = genreArr.indexOf(genre) + 1;
+
+
+        //have to make the album first in order to fill in albumId
+        
+        const songData = { songName, songUrl, albumName, albumArt, genreId, currentUser};
+
+        console.log('songData',songData);
+        dispatch(createSong(songData));
+
+        history.push('/yourtracks');
+        
     }
 
 	return (
