@@ -1,7 +1,9 @@
 import { csrfFetch } from './csrf';
 
 const GET_SONG = 'song/GET_SONG';
-const GET_ALL_SONGS = 'song/GET_ALL_SONGS'
+const GET_ALL_SONGS = 'song/GET_ALL_SONGS';
+
+const GET_ALL_GENRES = 'song/GET_ALL_GENRES';
 
 //get song with album and genre info
 const getSong = song => {
@@ -12,11 +14,16 @@ const getSong = song => {
 };
 
 const getSongList = (songs) => {
-    console.log('inside get all songs');
     return {
         type: GET_ALL_SONGS,
         payload: songs,
+    }
+};
 
+const getGenres = (genres) => {
+    return { 
+        type: GET_ALL_GENRES,
+        payload: genres,
     }
 };
 
@@ -38,7 +45,19 @@ export const getAllSongs = () => async (dispatch) => {
 	}
 };
 
-const initialState = { songs: null };
+export const getAllGenres = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/song/genres`);
+
+    if (response.ok) {
+        const genres = await response.json();
+        dispatch(getGenres(genres));
+    }
+}
+
+const initialState = {
+    songs: null,
+    genres: null,
+ };
 
 const songReducer = (state = initialState, action) => {
     let newState;
@@ -47,6 +66,10 @@ const songReducer = (state = initialState, action) => {
         case GET_ALL_SONGS:
             newState = {...state};
             newState.songs = action.payload;
+            return newState;
+        case GET_ALL_GENRES:
+            newState = {...state};
+            newState.genres = action.payload;
             return newState;
         default:
             return state;

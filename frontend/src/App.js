@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import CabinetDisplay from './components/CabinetDisplay';
 import TrackNavButtons from './components/Upload/NavTrackButtons';
+import UploadForm from './components/Upload/UploadForm';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 					</Route>
 					<Route path="/upload">
 						<TrackNavButtons />
-            {/* <UploadForm /> */}
+            			<UploadForm />
 					</Route>
 					<Route path="/yourtracks">
 						<TrackNavButtons />

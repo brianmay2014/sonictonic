@@ -17,7 +17,6 @@ const router = express.Router();
 
 
 router.get(`/all`, asyncHandler(async function(req, res) {
-    console.log('hello');
     const songs = await Song.findAll(
         {
             include: [Album, User, Genre]
@@ -26,6 +25,11 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         return res.json(songs);
         
     }));
+
+    router.get(`/genres`, asyncHandler(async function(req, res) {
+        const genres = await Genre.findAll();
+        return res.json(genres);
+    }))
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
         songId = req.params.id
