@@ -30,22 +30,30 @@ function Navigation({isLoaded}) {
     }
 
 	return (
-        <div>
-            <div className='top-bar'></div>
-            <nav>
-                <li>
-                    <NavLink exact to='/'>
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    {isLoaded && sessionLinks}
-                </li>
-                
-            </nav>
-
-        </div>
-    );
+		<div>
+			<div className="top-bar"></div>
+			<nav>
+				<div className="left-nav-links">
+					<li>
+						<NavLink exact to="/">
+							Home
+						</NavLink>
+					</li>
+					<li>
+						<NavLink exact to="/cabinet">
+							Cabinet
+						</NavLink>
+					</li>
+					<li>
+						<NavLink exact to="/upload">
+							Upload
+						</NavLink>
+					</li>
+				</div>
+				<li>{isLoaded && sessionLinks}</li>
+			</nav>
+		</div>
+	);
 }
 
 export default Navigation;

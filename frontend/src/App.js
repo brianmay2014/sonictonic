@@ -3,10 +3,12 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
+// import * as songActions from './store/song';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import SongSquare from './components/SongSquare';
+import CabinetDisplay from './components/CabinetDisplay';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,9 +34,8 @@ function App() {
 						<SignupFormPage />
 					</Route>
 					<Route path="/cabinet">
-						{/* <SongSquare /> */}
-						{/* <FilterCabinet />
-            <CabinetDisplay /> */}
+						{/* <FilterCabinet /> */}
+            			<CabinetDisplay />
 					</Route>
 					<Route path="/upload">
 						{/* <TrackNavButtons />
