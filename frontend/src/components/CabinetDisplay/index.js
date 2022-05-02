@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SongSquare from '../SongSquare';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllSongs } from '../../store/song';
+import { Link } from 'react-router-dom';
 
 
 function CabinetDisplay() {
@@ -10,16 +11,21 @@ function CabinetDisplay() {
     const dispatch = useDispatch();
     const songList = useSelector((state) => state.song.songs);
 
+    //pull the entire song list
     useEffect(() => {
         dispatch(getAllSongs());
     }, [dispatch]);
 
+
+    //map out array used to
     useEffect(() => {
-        setSongArray(songList.map(song => {
+        setSongArray(songList?.map(song => {
             return {
                 songName: song.songName,
                 albumName: song.Album.albumName,
-                albumArt: song.Album.imageUrl,    
+                albumArt: song.Album.imageUrl,
+                songId: song.id,
+                userName: song.User.username,
             }
         }))
     }, [songList]);
@@ -28,13 +34,15 @@ function CabinetDisplay() {
     
     return (
 		<div className="cabinet-display">
-			<p>Hello</p>
-            
-			<p>Album Artwork {songList[0].songName}</p>
-			<p>Album Artwork {songArray.songName}</p>
-			<p>Artist {songList[0].Album.albumName}</p>
-			<p>Song {songList[0].Album.imageUrl}</p>
-			{/* {songList}; */}
+			
+            {songArray?.map((song) => {
+                return (
+                    <SongSquare key={song.songId} song={song} />
+                )
+            })}
+
+
+
 		</div>
 	);
 }

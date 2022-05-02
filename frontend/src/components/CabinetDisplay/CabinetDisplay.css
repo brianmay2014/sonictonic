@@ -1,0 +1,4 @@
+.cabinet-display{
+    display: flex;
+    flex-direction: row;
+}

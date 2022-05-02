@@ -34,7 +34,6 @@ function App() {
 						<SignupFormPage />
 					</Route>
 					<Route path="/cabinet">
-						<SongSquare />
 						{/* <FilterCabinet /> */}
             			<CabinetDisplay />
 					</Route>

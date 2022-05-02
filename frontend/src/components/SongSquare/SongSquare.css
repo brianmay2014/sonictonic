@@ -12,6 +12,7 @@
     border-radius: 5px;
     box-shadow: none;
     transition: 0.3s;
+    margin: 60px;
 }
 
 .song-square:hover {
