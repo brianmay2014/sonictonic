@@ -17,22 +17,38 @@ function App() {
 
 
   return (
-    <>
-    <Navigation isLoaded={isLoaded} />
-    {isLoaded && (
-      <Switch>
-        <Route exact path='/'>
-          <HomePage />
-        </Route>
-        <Route path='/login'>
-          <LoginFormPage />
-        </Route>
-        <Route path='/signup'>
-          <SignupFormPage />
-        </Route>
-      </Switch>
-      )}
-    </>
+		<>
+			<Navigation isLoaded={isLoaded} />
+			{isLoaded && (
+				<Switch>
+					<Route exact path="/">
+						<HomePage />
+					</Route>
+					<Route path="/login">
+						<LoginFormPage />
+					</Route>
+					<Route path="/signup">
+						<SignupFormPage />
+					</Route>
+					<Route path="/cabinet">
+						{/* <FilterCabinet />
+            <CabinetDisplay /> */}
+					</Route>
+					<Route path="/upload">
+						{/* <TrackNavButtons />
+            <CabinetDisplay /> */}
+					</Route>
+					<Route path="/yourtracks">
+						{/* <TrackNavButtons />
+            <UploadForm /> */}
+					</Route>
+          <Route path="/song/:songId">
+            {/* <BigPlayer />
+            <SongComments /> */}
+          </Route>
+				</Switch>
+			)}
+		</>
   );
 }
 
