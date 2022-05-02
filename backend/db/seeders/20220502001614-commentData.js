@@ -8,10 +8,33 @@ module.exports = {
 
       Example:
       */
-   return queryInterface.bulkInsert('Comments', [{
-     name: 'John Doe',
-     isBetaMember: false
-   }], {});
+   return queryInterface.bulkInsert(
+		"Comments",
+		[
+			{
+				userId: 1,
+				songId: 1,
+				body: "What an opener!",
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			},
+			{
+				userId: 2,
+				songId: 1,
+				body: "This song shreds",
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			},
+			{
+				userId: 3,
+				songId: 1,
+				body: "lemme back into the pit",
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			},
+		],
+		{}
+   );
   },
 
   down: (queryInterface, Sequelize) => {
