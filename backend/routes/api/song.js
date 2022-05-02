@@ -14,8 +14,6 @@ const router = express.Router();
 
 
 
-
-
 router.get(`/all`, asyncHandler(async function(req, res) {
     const songs = await Song.findAll(
         {
@@ -40,7 +38,6 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     //add validations here?
     router.post(`/`, asyncHandler( async function (req, res) {
-        // console.log('body!!!!!!!!',req.body);
 
         const {songName, songUrl, albumName, albumArt, genreId, currentUser} = req.body;
         const album = await Album.create({
@@ -48,9 +45,6 @@ router.get(`/all`, asyncHandler(async function(req, res) {
             albumName,
             imageUrl: albumArt
         });
-
-        // console.log('-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/',album);
-        // console.log('!!!!!!!!!!!!!!!!!!!!!', album.dataValues.id);
 
         const newAlbumId = album.dataValues.id;
 
@@ -62,8 +56,6 @@ router.get(`/all`, asyncHandler(async function(req, res) {
             songName
 
         });
-
-        // res.redirect('/yourtracks');
 
     }))
 

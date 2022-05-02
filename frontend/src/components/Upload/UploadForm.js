@@ -25,7 +25,7 @@ const UploadForm = () => {
 
 	useEffect(() => {
 		dispatch(getAllGenres());
-        // dispatch(restoreUser());
+
 	}, [dispatch]);
 
 
@@ -35,19 +35,14 @@ const UploadForm = () => {
         let genreArr= genreList.map(genre => {
             return genre.genreName;
         })
-        // console.log(genreArr);
 
-        console.log('user', currentUser);
         const genreId = genreArr.indexOf(genre) + 1;
-
-
-        //have to make the album first in order to fill in albumId
-        
         const songData = { songName, songUrl, albumName, albumArt, genreId, currentUser};
 
-        console.log('songData',songData);
         dispatch(createSong(songData));
 
+        //redirect user to their newly uploaded song
+        //in the list of their uploaded songs
         history.push('/yourtracks');
         
     }

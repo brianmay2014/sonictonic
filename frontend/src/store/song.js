@@ -63,17 +63,6 @@ export const getAllGenres = () => async (dispatch) => {
 }
 
 export const createSong = (songData) => async (dispatch) => {
-            // const songData = {
-			// 	songName,
-			// 	songUrl,
-			// 	albumName,
-			// 	albumArt,
-			// 	genreId,
-			// 	currentUser,
-			// };
-
-            console.log('songData inside thunk', songData);
-
 
     const response = await csrfFetch(`/api/song`, {
         method: "POST",
