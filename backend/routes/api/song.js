@@ -17,7 +17,6 @@ const router = express.Router();
 
 
 router.get(`/all`, asyncHandler(async function(req, res) {
-    console.log('hello');
     const songs = await Song.findAll(
         {
             include: [Album, User, Genre]
@@ -26,6 +25,11 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         return res.json(songs);
         
     }));
+
+    router.get(`/genres`, asyncHandler(async function(req, res) {
+        const genres = await Genre.findAll();
+        return res.json(genres);
+    }))
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
         songId = req.params.id
@@ -33,6 +37,35 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         return res.json(song);
     
     }));
+
+    //add validations here?
+    router.post(`/`, asyncHandler( async function (req, res) {
+        // console.log('body!!!!!!!!',req.body);
+
+        const {songName, songUrl, albumName, albumArt, genreId, currentUser} = req.body;
+        const album = await Album.create({
+            userId: currentUser,
+            albumName,
+            imageUrl: albumArt
+        });
+
+        // console.log('-*/-*/-*/-*/-*/-*/-*/-*/-*/-*/',album);
+        // console.log('!!!!!!!!!!!!!!!!!!!!!', album.dataValues.id);
+
+        const newAlbumId = album.dataValues.id;
+
+        const song = await Song.create({
+            userId: currentUser,
+            url: songUrl,
+            albumId: newAlbumId,
+            genreId,
+            songName
+
+        });
+
+        // res.redirect('/yourtracks');
+
+    }))
 
 
 
