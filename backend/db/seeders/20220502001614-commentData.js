@@ -795,6 +795,20 @@ module.exports = {
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},
+			{
+				userId: 2,
+				songId: 57,
+				body: "this is what i dream of when i sleep",
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			},
+			{
+				userId: 3,
+				songId: 57,
+				body: "this song is money",
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			},
 		],
 		{}
    );
