@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import EditTrackModal from './EditTrackModal';
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
 import { getAllGenres } from "../../store/song";
 import { editSong } from "../../store/song";
 // import DeleteTrackModal from "./DeleteTrackModal";
@@ -15,8 +14,8 @@ function YourTrackRow({ song }) {
 	const [songName, setSongName] = useState(song.songName);
 	const [genre, setGenre] = useState("");
 
-	const songsObj = useSelector((state) => state.song);
-	const songList = Object.values(songsObj);
+	// const songsObj = useSelector((state) => state.song);
+	// const songList = Object.values(songsObj);
 
 	const genreList = useSelector((state) => state.genre.genres);
 	const currentUser = useSelector((state) => state.session.user.id);
