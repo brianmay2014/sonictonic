@@ -8,7 +8,7 @@ const YourTrackList = () => {
     const dispatch = useDispatch();
     const songsObj = useSelector(state => state.song);
     const songList = Object.values(songsObj);
-    const currentUser = useSelector((state) => state.session.user.id);
+    const currentUser = useSelector((state) => state.session.user?.id);
 
     //pull the entire song list
     useEffect(() => {

@@ -21,7 +21,7 @@ const UploadForm = () => {
     const history = useHistory();
 	const dispatch = useDispatch();
 	const genreList = useSelector((state) => state.genre.genres);
-    const currentUser = useSelector((state) => state.session.user.id);
+    const currentUser = useSelector((state) => state.session.user?.id);
 
 	useEffect(() => {
 		dispatch(getAllGenres());

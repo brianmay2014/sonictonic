@@ -1,10 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 import './Upload.css';
 
 function TrackNavButtons() {
-	console.log("inside track buttons");
+
+	const history = useHistory();
+const sessionUser = useSelector((state) => state.session.user);
+
+// if user is not signed in for /upload or /yourtracks
+// rerouted to the login page
+	if (!sessionUser) {
+		return history.push('/login');;
+	}
 
 	return (
 		<div className="track-nav-buttons">
