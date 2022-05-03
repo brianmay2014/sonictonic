@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import CabinetDisplay from './components/CabinetDisplay';
 import TrackNavButtons from './components/Upload/NavTrackButtons';
 import UploadForm from './components/Upload/UploadForm';
+import YourTrackList from './components/Upload/YourTrackList';
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
 					</Route>
 					<Route path="/yourtracks">
 						<TrackNavButtons />
-            {/* <YourTrackList /> */}
+            			<YourTrackList />
 					</Route>
           <Route path="/song/:songId">
             {/* <BigPlayer /> */}
