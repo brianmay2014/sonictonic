@@ -72,19 +72,16 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         await song.save();
         
         return res.json(song);
-        
+    }));
 
-        // console.log(req.body.genreId, req.body.songName, req.body.songId);
-        // const song = await Song.update( 
-        //     {genreId: req.body.genreId,
-        //     songName: req.body.songName },
-        //     { where: { id: req.body.songId}},
-        // )
 
-// console.log(song);
+    router.delete(`/:id`, asyncHandler(async function (req, res) {
+        const songId = parseInt(req.body.songId, 10);
 
-        // { songId: '58', songName: 'asdfssddsdf', genreId: 1, currentUser: 1 }
-    }))
+        await Song.destroy({ where: { id: songId }});
+        return songId;
+
+    }));
 
 
 

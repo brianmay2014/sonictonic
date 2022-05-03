@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllGenres } from "../../store/song";
 import { editSong } from "../../store/song";
 // import DeleteTrackModal from "./DeleteTrackModal";
+import {deleteSong} from '../../store/song';
 
 function YourTrackRow({ song }) {
-	const songId = song.id;
-	console.log(songId);
+	// const songId = song.id;
+	
 	const [showEditForm, setShowEditForm] = useState(false);
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
@@ -81,7 +82,9 @@ function YourTrackRow({ song }) {
 		const songId = splitId[1];
 
 		//call to thunk
+		dispatch(deleteSong(songId));
 
+		//hide form
 		setShowDeleteForm(false);
 
 	}
@@ -173,7 +176,7 @@ function YourTrackRow({ song }) {
 							className="btn"
 							type="submit"
 							onClick={handleDelete}
-							id={`editsubmit-${song.id}`}
+							id={`deletesubmit-${song.id}`}
 						>
 							Delete track
 						</button>

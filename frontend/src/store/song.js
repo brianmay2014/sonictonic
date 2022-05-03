@@ -3,9 +3,8 @@ import { csrfFetch } from './csrf';
 const GET_SONG = 'song/GET_SONG';
 const GET_ALL_SONGS = 'song/GET_ALL_SONGS';
 const CREATE_SONG = 'song/CREATE_SONG';
-
 const UPDATE_SONG = 'song/UPDATE_SONG';
-
+const REMOVE_SONG = 'song/REMOVE_SONG';
 const GET_ALL_GENRES = 'song/GET_ALL_GENRES';
 
 //get song with album and genre info
@@ -41,6 +40,13 @@ const createNewSong = (song) => {
     return {
         type: CREATE_SONG,
         payload: song,
+    }
+}
+
+const remove = (id) => {
+    return {
+        type: REMOVE_SONG,
+        payload: id,
     }
 }
 
@@ -99,6 +105,19 @@ export const createSong = (songData) => async (dispatch) => {
     };
 };
 
+export const deleteSong = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/song/${id}`, {
+        method: "DELETE",
+        body: JSON.stringify({songId: id}),
+    });
+
+    if (response.ok) {
+        const {id} = await response.json();
+        dispatch(remove(id));
+        return id;
+    }
+}
+
 const initialState = { };
 
 const songReducer = (state = initialState, action) => {
@@ -132,6 +151,11 @@ const songReducer = (state = initialState, action) => {
             // let updateIndex = action.payload.id - 1;
             // newState.songs[updateIndex] = action.payload;
             return newState;
+        case REMOVE_SONG:
+                newState = {...state};
+                delete newState[action.payload];
+                //fill me in, please
+                return newState;
         default:
             return state;
     }
