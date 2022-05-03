@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllGenres } from "../../store/song";
 import { editSong } from '../../store/song';
 
+
+
 function YourTrackRow ( {song} ) {
 
     const [showEditForm, setShowEditForm] = useState(false);
     // const [showDeleteForm, setShowDeleteForm] = useState(false);
     const [songName, setSongName] = useState(song.songName);
-	const [genre, setGenre] = useState("Alternative Rock");
+	const [genre, setGenre] = useState(song.genreName);
 
     const genreList = useSelector((state) => state.song.genres);
 	const currentUser = useSelector((state) => state.session.user.id);
@@ -26,6 +28,7 @@ function YourTrackRow ( {song} ) {
     const deleteFormSong = (e) => {
         e.preventDefault();
         // const songId = e.target.id;
+
     }
 
 
@@ -53,8 +56,6 @@ function YourTrackRow ( {song} ) {
 		};
 
 		dispatch(editSong(songData));
-
-        // setSongName(songName);
 
 	};
 

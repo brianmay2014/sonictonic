@@ -41,6 +41,7 @@ const UploadForm = () => {
 
         dispatch(createSong(songData));
 
+		alert("Song uploaded, redirecting to your track page");
         //redirect user to their newly uploaded song
         //in the list of their uploaded songs
         history.push('/yourtracks');
