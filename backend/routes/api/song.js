@@ -59,6 +59,28 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     }))
 
+    router.put(`/:id`, asyncHandler(async function (req, res) {
+        
+        const song = await Song.findByPk(req.body.songId);
+        song.songName = await req.body.songName;
+        song.genreId = await req.body.genreId;
+        console.log(song);
+        
+        return res.json(song);
+        
+
+        // console.log(req.body.genreId, req.body.songName, req.body.songId);
+        // const song = await Song.update( 
+        //     {genreId: req.body.genreId,
+        //     songName: req.body.songName },
+        //     { where: { id: req.body.songId}},
+        // )
+
+// console.log(song);
+
+        // { songId: '58', songName: 'asdfssddsdf', genreId: 1, currentUser: 1 }
+    }))
+
 
 
 
