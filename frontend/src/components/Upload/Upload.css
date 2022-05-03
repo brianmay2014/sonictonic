@@ -67,3 +67,7 @@
     background-color: var(--darkblue);
     z-index: 1;
 } */
+
+.new-song-form p {
+    padding: 20px;
+}

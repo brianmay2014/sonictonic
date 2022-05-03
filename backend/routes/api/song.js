@@ -78,8 +78,13 @@ router.get(`/all`, asyncHandler(async function(req, res) {
     router.delete(`/:id`, asyncHandler(async function (req, res) {
         const songId = parseInt(req.body.songId, 10);
 
+        console.log('before destroy');
+
         await Song.destroy({ where: { id: songId }});
-        return songId;
+
+        console.log('after destroy');
+
+        return res.json(songId);
 
     }));
 
