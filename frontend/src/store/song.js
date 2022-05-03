@@ -98,10 +98,7 @@ export const createSong = (songData) => async (dispatch) => {
     };
 };
 
-const initialState = {
-    songs: null,
-    genres: null,
- };
+const initialState = { };
 
 const songReducer = (state = initialState, action) => {
     let newState;
@@ -109,8 +106,13 @@ const songReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_SONGS:
             newState = {...state};
-            newState.songs = action.payload;
-            return newState;
+            const allSongs = {};
+            action.payload.forEach(song => {
+                allSongs[song.id] = song;
+            });
+            return { ...allSongs, ...state };
+            // newState.songs = action.payload;
+            // return newState;
         case GET_ALL_GENRES:
             newState = {...state};
             newState.genres = action.payload;

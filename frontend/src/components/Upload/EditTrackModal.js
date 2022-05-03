@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllGenres } from "../../store/song";
+import { getAllGenres } from "../../store/genre";
 // import { restoreUser } from "../../store/session";
 import { createSong } from "../../store/song";
 

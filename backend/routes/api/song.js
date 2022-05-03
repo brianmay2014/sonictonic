@@ -64,7 +64,8 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         const song = await Song.findByPk(req.body.songId);
         song.songName = await req.body.songName;
         song.genreId = await req.body.genreId;
-        console.log(song);
+        // console.log(song);
+        await song.save();
         
         return res.json(song);
         
