@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllGenres } from "../../store/song";
+import { getAllGenres } from "../../store/genre";
 // import { restoreUser } from "../../store/session";
 import { createSong } from "../../store/song";
 
@@ -20,7 +20,7 @@ const UploadForm = () => {
 
     const history = useHistory();
 	const dispatch = useDispatch();
-	const genreList = useSelector((state) => state.song.genres);
+	const genreList = useSelector((state) => state.genre.genres);
     const currentUser = useSelector((state) => state.session.user.id);
 
 	useEffect(() => {
@@ -41,6 +41,7 @@ const UploadForm = () => {
 
         dispatch(createSong(songData));
 
+		alert("Song uploaded, redirecting to your track page");
         //redirect user to their newly uploaded song
         //in the list of their uploaded songs
         history.push('/yourtracks');

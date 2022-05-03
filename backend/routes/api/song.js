@@ -30,11 +30,13 @@ router.get(`/all`, asyncHandler(async function(req, res) {
     }))
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
-        songId = req.params.id
-        const song = await Song.findByPk();
-        return res.json(song);
-    
-    }));
+		songId = req.params.id;
+		const song = await Song.findByPk();
+		return res.json(song);
+
+        //Bill note
+		//Similarly, you could add the include the models in your .get('/:id' instead and res.redirect to that route
+	}));
 
     //add validations here?
     router.post(`/`, asyncHandler( async function (req, res) {
@@ -58,6 +60,25 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         });
 
     }))
+
+    router.put(`/:id`, asyncHandler(async function (req, res) {
+        
+        const song = await Song.findByPk(req.body.songId, {
+            include: [Album, User, Genre]
+        });
+        song.songName = await req.body.songName;
+        song.genreId = await req.body.genreId;
+        await song.save();
+        
+        return res.json(song);
+    }));
+
+
+    router.delete(`/:id`, asyncHandler(async function (req, res) {
+        const songId = parseInt(req.body.songId, 10);
+        await Song.destroy({ where: { id: songId }});
+        return res.json(songId);
+    }));
 
 
 
