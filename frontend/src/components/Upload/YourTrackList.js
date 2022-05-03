@@ -19,31 +19,34 @@ const YourTrackList = () => {
 	}, [dispatch]);
 
 	//map out array used to
-	useEffect(() => {
-		// let mapped = songList?.map((song) => {
-		// 		return {
-		// 			songName: song?.songName,
-		// 			albumName: song?.Album?.albumName,
-		// 			albumArt: song?.Album?.imageUrl,
-		// 			songId: song?.id,
-		// 			userName: song?.User?.username,
-        //             userId: song?.User?.id,
-        //             genreId: song?.Genre?.id,
-        //             genreName: song?.Genre.name
-		// 		};
-		// 	});
+	// useEffect(() => {
+	// 	// let mapped = songList?.map((song) => {
+	// 	// 		return {
+	// 	// 			songName: song?.songName,
+	// 	// 			albumName: song?.Album?.albumName,
+	// 	// 			albumArt: song?.Album?.imageUrl,
+	// 	// 			songId: song?.id,
+	// 	// 			userName: song?.User?.username,
+    //     //             userId: song?.User?.id,
+    //     //             genreId: song?.Genre?.id,
+    //     //             genreName: song?.Genre.name
+	// 	// 		};
+	// 	// 	});
 
-        //     setYourSongList(mapped?.filter(song => song.userId === currentUser));
-        console.log(songList);
+    //     //     setYourSongList(mapped?.filter(song => song.userId === currentUser));
+    //     console.log(songList);
 
-	}, [songList, currentUser]);
+	// }, [songList, currentUser]);
 
     return (
         <div className="your-track-list">
             
-            {yourSongList?.map((song) => {
+            {songList?.filter(song => song.userId === currentUser)
+            .map((song) => {
                 return (
+                    <>
                     <YourTrackRow key={song.songId} song={song} />
+                    </>
                 )
             })}
         </div>

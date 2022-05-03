@@ -113,10 +113,10 @@ const songReducer = (state = initialState, action) => {
             return { ...allSongs, ...state };
             // newState.songs = action.payload;
             // return newState;
-        case GET_ALL_GENRES:
-            newState = {...state};
-            newState.genres = action.payload;
-            return newState;
+        // case GET_ALL_GENRES:
+        //     newState = {...state};
+        //     newState.genres = action.payload;
+        //     return newState;
         case CREATE_SONG:
             newState = {...state};
             newState.songs = [...newState.songs];

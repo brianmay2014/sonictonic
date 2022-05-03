@@ -12,9 +12,9 @@ function YourTrackRow ( {song} ) {
     const [showEditForm, setShowEditForm] = useState(false);
     // const [showDeleteForm, setShowDeleteForm] = useState(false);
     const [songName, setSongName] = useState(song.songName);
-	const [genre, setGenre] = useState(song.genreName);
+	const [genre, setGenre] = useState(song.Genre.genreName);
 
-    const genreList = useSelector((state) => state.song.genres);
+    const genreList = useSelector((state) => state.genre.genres);
 	const currentUser = useSelector((state) => state.session.user.id);
 
     	// const history = useHistory();
@@ -39,6 +39,7 @@ function YourTrackRow ( {song} ) {
 	const handleEdit = async (e) => {
 		e.preventDefault();
         const editId = e.target.id;
+		console.log('editId', editId);
         const splitId = editId.split('-');
         const songId = splitId[1];
 
@@ -55,6 +56,8 @@ function YourTrackRow ( {song} ) {
 			currentUser,
 		};
 
+		console.log(songData);
+
 		dispatch(editSong(songData));
 
 	};
@@ -66,18 +69,18 @@ function YourTrackRow ( {song} ) {
     return (
 		<div>
 			<div className="your-track-row">
-				<button onClick={editFormSong} id={`edit-${song.songId}`}>
+				<button onClick={editFormSong} id={`edit-${song.id}`}>
 					Edit
 				</button>
-				<button onClick={deleteFormSong} id={`delete-${song.songId}`}>
+				<button onClick={deleteFormSong} id={`delete-${song.id}`}>
 					Delete
 				</button>
 				<img
 					className="row-img"
-					src={`${song.albumArt}`}
-					alt={`Album artwork for ${song.albumName}`}
+					src={`${song.Album.imageUrl}`}
+					alt={`Album artwork for ${song.Album.albumName}`}
 				/>
-				{song.songName} by {song.userName}
+				{song.songName} by {song.User.username}
 			</div>
 			{/* Edit form */}
 			{/* {showEditForm && (
@@ -111,7 +114,7 @@ function YourTrackRow ( {song} ) {
 					<button className="btn"
                     type="submit"
                     onClick={handleEdit}
-                    id={`editsubmit-${song.songId}`}>
+                    id={`editsubmit-${song.id}`}>
 						Edit track
 					</button>
 					<button className="btn" onClick={() => setShowEditForm(false)}>
