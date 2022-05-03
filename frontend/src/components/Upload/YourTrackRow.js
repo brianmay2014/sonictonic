@@ -1,57 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 // import EditTrackModal from './EditTrackModal';
 import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import { getAllGenres } from "../../store/song";
-import { editSong } from '../../store/song';
+import { editSong } from "../../store/song";
+// import DeleteTrackModal from "./DeleteTrackModal";
 
-
-
-function YourTrackRow ( {song} ) {
-
+function YourTrackRow({ song }) {
 	const songId = song.id;
 	console.log(songId);
-    const [showEditForm, setShowEditForm] = useState(false);
-    // const [showDeleteForm, setShowDeleteForm] = useState(false);
-    const [songName, setSongName] = useState(song.songName);
+	const [showEditForm, setShowEditForm] = useState(false);
+	const [showDeleteForm, setShowDeleteForm] = useState(false);
+	const [songName, setSongName] = useState(song.songName);
 	const [genre, setGenre] = useState("");
 
-    const songsObj = useSelector((state) => state.song);
+	const songsObj = useSelector((state) => state.song);
 	const songList = Object.values(songsObj);
 
-    const genreList = useSelector((state) => state.genre.genres);
+	const genreList = useSelector((state) => state.genre.genres);
 	const currentUser = useSelector((state) => state.session.user.id);
 
-    	// const history = useHistory();
-		const dispatch = useDispatch();
+	// const history = useHistory();
+	const dispatch = useDispatch();
 
-    const editFormSong = (e) => {
-        e.preventDefault();
+	const editFormSong = (e) => {
+		e.preventDefault();
 		setGenre(song.Genre.genreName);
-        setShowEditForm(true);
-    }
+		setShowEditForm(true);
+	};
 	const editFormCancel = (e) => {
 		e.preventDefault();
 		setShowEditForm(false);
-	}
+	};
 
-    const deleteFormSong = (e) => {
-        e.preventDefault();
-        // const songId = e.target.id;
+	const deleteFormSong = (e) => {
+		e.preventDefault();
+		// const songId = e.target.id;
+		setShowDeleteForm(true);
+	};
+	const deleteFormCancel = (e) => {
+		e.preventDefault();
+		setShowDeleteForm(false);
+	};
 
-    }
-
-
-    useEffect(() => {
+	useEffect(() => {
 		dispatch(getAllGenres());
 	}, [dispatch]);
 
 	const handleEdit = async (e) => {
 		e.preventDefault();
-        const editId = e.target.id;
-		console.log('editId', editId);
-        const splitId = editId.split('-');
-        const songId = splitId[1];
+		const editId = e.target.id;
+		const splitId = editId.split("-");
+		const songId = splitId[1];
 
 		let genreArr = genreList.map((genre) => {
 			return genre.genreName;
@@ -60,7 +60,7 @@ function YourTrackRow ( {song} ) {
 		const genreId = genreArr.indexOf(genre) + 1;
 
 		const songData = {
-            songId,
+			songId,
 			songName,
 			genreId,
 			currentUser,
@@ -73,25 +73,49 @@ function YourTrackRow ( {song} ) {
 		setShowEditForm(false);
 	};
 
+	const handleDelete = async (e) => {
+		e.preventDefault();
 
+		const deleteId = e.target.id;
+		const splitId = deleteId.split("-");
+		const songId = splitId[1];
 
+		//call to thunk
 
+		setShowDeleteForm(false);
 
-    return (
+	}
+
+	return (
 		<div>
 			<div className="your-track-row">
-				<button onClick={editFormSong} id={`edit-${song.id}`}>
-					Edit
-				</button>
-				<button onClick={deleteFormSong} id={`delete-${song.id}`}>
-					Delete
-				</button>
+				<div className="track-button-holder">
+					<button
+						className="btn track-row-btn"
+						onClick={editFormSong}
+						id={`edit-${song.id}`}
+					>
+						Edit
+					</button>
+					<button
+						className="btn track-row-btn"
+						onClick={deleteFormSong}
+						id={`delete-${song.id}`}
+					>
+						Delete
+					</button>
+				</div>
+
 				<img
 					className="row-img"
 					src={`${song?.Album?.imageUrl}`}
 					alt={`Album artwork for ${song?.Album?.albumName}`}
 				/>
-				{song.songName} by {song?.User?.username}
+				<div className="track-text">
+					<p>{song.songName}</p>
+					<p>by</p>
+					<p>{song?.User?.username}</p>
+				</div>
 			</div>
 			{/* Edit form */}
 			{/* {showEditForm && (
@@ -105,6 +129,7 @@ function YourTrackRow ( {song} ) {
 			)} */}
 
 			{showEditForm && (
+				// <div className="modal-backing">
 				<form className="new-song-form" onSubmit={handleEdit}>
 					<label>Song Name</label>
 					<input
@@ -122,24 +147,45 @@ function YourTrackRow ( {song} ) {
 							<option key={genre.id}>{genre.genreName}</option>
 						))}
 					</select>
-					<button className="btn"
-                    type="submit"
-                    onClick={handleEdit}
-                    id={`editsubmit-${song.id}`}>
+					<button
+						className="btn"
+						type="submit"
+						onClick={handleEdit}
+						id={`editsubmit-${song.id}`}
+					>
 						Edit track
 					</button>
 					<button className="btn" onClick={editFormCancel}>
 						Cancel
 					</button>
 				</form>
+				// </div>
 			)}
 
 			{/* Delete form */}
-			<div className="delete-form"></div>
+			<div className="delete-form">
+				{showDeleteForm && (
+					// <div className="modal-backing">
+					<form className="new-song-form" onSubmit={handleDelete}>
+						<p>Are you sure you want to delete {song.songName}?</p>
+
+						<button
+							className="btn"
+							type="submit"
+							onClick={handleDelete}
+							id={`editsubmit-${song.id}`}
+						>
+							Delete track
+						</button>
+						<button className="btn" onClick={deleteFormCancel}>
+							Cancel
+						</button>
+					</form>
+					// </div>
+				)}
+			</div>
 		</div>
 	);
 }
-
-
 
 export default YourTrackRow;

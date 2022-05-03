@@ -26,4 +26,44 @@
     height: 50px;
     box-shadow: 1px 1px 2px var(--lightblue);
     border-radius: 3px;
+    margin: 15px;
 }
+
+.track-row-btn{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.your-track-row{
+    display: flex;
+    width: 75%;
+    margin:0 auto;
+    
+    justify-content: space-between;
+    border:1px black solid;
+}
+.track-button-holder{
+    position: relative;
+    width: 200px;
+    top: 25px;
+    left: 25px;
+}
+.track-text{
+    position: relative;
+    width: 200px;
+}
+
+.track-text p {
+    color: var(--lightblue);
+    line-height: 0.25em;
+}
+
+/* .new-song-form{
+    z-index: 2;
+}
+
+.modal-backing{
+    display: absolute;
+    background-color: var(--darkblue);
+    z-index: 1;
+} */
