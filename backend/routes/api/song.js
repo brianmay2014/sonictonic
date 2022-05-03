@@ -68,7 +68,6 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         });
         song.songName = await req.body.songName;
         song.genreId = await req.body.genreId;
-        // console.log(song);
         await song.save();
         
         return res.json(song);
@@ -77,15 +76,8 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     router.delete(`/:id`, asyncHandler(async function (req, res) {
         const songId = parseInt(req.body.songId, 10);
-
-        console.log('before destroy');
-
         await Song.destroy({ where: { id: songId }});
-
-        console.log('after destroy');
-
         return res.json(songId);
-
     }));
 
 

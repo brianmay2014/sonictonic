@@ -44,8 +44,6 @@ const createNewSong = (song) => {
 }
 
 const remove = (id) => {
-    console.log('inside the delete action creator');
-    console.log(id);
     return {
         type: REMOVE_SONG,
         payload: id,
@@ -109,18 +107,13 @@ export const createSong = (songData) => async (dispatch) => {
 
 export const deleteSong = (id) => async (dispatch) => {
 
-    console.log('beginning of thunk'); 
-
     const response = await csrfFetch(`/api/song/${id}`, {
         method: "DELETE",
         body: JSON.stringify({songId: id}),
     });
 
-    console.log('inside the thunk');
-
     if (response.ok) {
         const id = await response.json();
-        console.log('inside response.ok, id = ', id);
         dispatch(remove(id));
         return id;
     }
@@ -130,7 +123,6 @@ const initialState = { };
 
 const songReducer = (state = initialState, action) => {
     let newState;
-    console.log('action',action);
     switch (action.type) {
         case GET_ALL_SONGS:
             newState = {...state};
@@ -139,12 +131,6 @@ const songReducer = (state = initialState, action) => {
                 allSongs[song.id] = song;
             });
             return { ...allSongs, ...state };
-            // newState.songs = action.payload;
-            // return newState;
-        // case GET_ALL_GENRES:
-        //     newState = {...state};
-        //     newState.genres = action.payload;
-        //     return newState;
         case CREATE_SONG:
             newState = {...state};
             newState.songs = [...newState.songs];
@@ -153,25 +139,15 @@ const songReducer = (state = initialState, action) => {
             return newState;
         case UPDATE_SONG:
             newState = {...state, [action.payload.id]: action.payload};
-
-            // console.log('hello, i am the state variable',newState);
-            // console.log('hello from the reducer', action.payload);
-            // let updateIndex = action.payload.id - 1;
-            // newState.songs[updateIndex] = action.payload;
             return newState;
         case REMOVE_SONG:
-            console.log('inside the delete reducer');
-                newState = {...state};
-                console.log('action.payload',action.payload)
-                delete newState[action.payload];
-                //fill me in, please
-                return newState;
+            newState = {...state};
+            delete newState[action.payload];            
+            return newState;
         default:
             return state;
     }
 };
 
-
-console.log(getSongList({test: 'test'}));
 
 export default songReducer;
