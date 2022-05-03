@@ -9,10 +9,15 @@ import { editSong } from '../../store/song';
 
 function YourTrackRow ( {song} ) {
 
+	const songId = song.id;
+	console.log(songId);
     const [showEditForm, setShowEditForm] = useState(false);
     // const [showDeleteForm, setShowDeleteForm] = useState(false);
     const [songName, setSongName] = useState(song.songName);
-	const [genre, setGenre] = useState(song.Genre.genreName);
+	const [genre, setGenre] = useState("");
+
+    const songsObj = useSelector((state) => state.song);
+	const songList = Object.values(songsObj);
 
     const genreList = useSelector((state) => state.genre.genres);
 	const currentUser = useSelector((state) => state.session.user.id);
@@ -22,6 +27,7 @@ function YourTrackRow ( {song} ) {
 
     const editFormSong = (e) => {
         e.preventDefault();
+		setGenre(song.Genre.genreName);
         setShowEditForm(true);
     }
 	const editFormCancel = (e) => {
@@ -64,6 +70,7 @@ function YourTrackRow ( {song} ) {
 
 		dispatch(editSong(songData));
 
+		setShowEditForm(false);
 	};
 
 
@@ -81,10 +88,10 @@ function YourTrackRow ( {song} ) {
 				</button>
 				<img
 					className="row-img"
-					src={`${song.Album.imageUrl}`}
-					alt={`Album artwork for ${song.Album.albumName}`}
+					src={`${song?.Album?.imageUrl}`}
+					alt={`Album artwork for ${song?.Album?.albumName}`}
 				/>
-				{song.songName} by {song.User.username}
+				{song.songName} by {song.User?.username}
 			</div>
 			{/* Edit form */}
 			{/* {showEditForm && (

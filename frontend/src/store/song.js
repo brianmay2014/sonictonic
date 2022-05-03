@@ -81,6 +81,7 @@ export const editSong = (song) => async (dispatch) => {
     if (response.ok) {
         const song = await response.json();
         dispatch(update(song));
+        return song;
     };
 };
 
