@@ -24,6 +24,10 @@ function YourTrackRow ( {song} ) {
         e.preventDefault();
         setShowEditForm(true);
     }
+	const editFormCancel = (e) => {
+		e.preventDefault();
+		setShowEditForm(false);
+	}
 
     const deleteFormSong = (e) => {
         e.preventDefault();
@@ -117,7 +121,7 @@ function YourTrackRow ( {song} ) {
                     id={`editsubmit-${song.id}`}>
 						Edit track
 					</button>
-					<button className="btn" onClick={() => setShowEditForm(false)}>
+					<button className="btn" onClick={editFormCancel}>
 						Cancel
 					</button>
 				</form>
