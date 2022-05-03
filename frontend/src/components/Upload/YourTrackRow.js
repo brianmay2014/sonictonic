@@ -91,7 +91,7 @@ function YourTrackRow ( {song} ) {
 					src={`${song?.Album?.imageUrl}`}
 					alt={`Album artwork for ${song?.Album?.albumName}`}
 				/>
-				{song.songName} by {song.User?.username}
+				{song.songName} by {song?.User?.username}
 			</div>
 			{/* Edit form */}
 			{/* {showEditForm && (
