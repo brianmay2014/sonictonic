@@ -12,11 +12,5 @@ function YourTrackRow ( {song} ) {
 }
 
 
-//    songName: song.songName,
-//                 albumName: song.Album.albumName,
-//                 albumArt: song.Album.imageUrl,
-//                 songId: song.id,
-//                 userName: song.User.username,
-
 
 export default YourTrackRow;

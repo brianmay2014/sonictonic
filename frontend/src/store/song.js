@@ -4,6 +4,8 @@ const GET_SONG = 'song/GET_SONG';
 const GET_ALL_SONGS = 'song/GET_ALL_SONGS';
 const CREATE_SONG = 'song/CREATE_SONG';
 
+const UPDATE_SONG = 'song/UPDATE_SONG';
+
 const GET_ALL_GENRES = 'song/GET_ALL_GENRES';
 
 //get song with album and genre info
@@ -18,6 +20,13 @@ const getSongList = (songs) => {
     return {
         type: GET_ALL_SONGS,
         payload: songs,
+    }
+};
+
+const update = (song) => {
+    return {
+        type: UPDATE_SONG,
+        payload: song,
     }
 };
 
@@ -62,6 +71,19 @@ export const getAllGenres = () => async (dispatch) => {
     }
 }
 
+export const editSong = (song) => async (dispatch) => {
+    const response = await csrfFetch(`/api/song/${song.songId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(song)
+    });
+
+    if (response.ok) {
+        const song = await response.json();
+        dispatch(update(song));
+    };
+};
+
 export const createSong = (songData) => async (dispatch) => {
 
     const response = await csrfFetch(`/api/song`, {
@@ -98,6 +120,13 @@ const songReducer = (state = initialState, action) => {
             newState.songs = [...newState.songs];
             //very questionable methods
             newState.songs.push(action.payload);
+            return newState;
+        case UPDATE_SONG:
+            newState = {...state};
+            //need to 
+            //fill
+            //this
+            //in
             return newState;
         default:
             return state;
