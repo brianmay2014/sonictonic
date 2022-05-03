@@ -124,7 +124,8 @@ const songReducer = (state = initialState, action) => {
             newState.songs.push(action.payload);
             return newState;
         case UPDATE_SONG:
-            newState = {...state};
+            newState = {...state, [action.payload.id]: action.payload};
+
             // console.log('hello, i am the state variable',newState);
             // console.log('hello from the reducer', action.payload);
             // let updateIndex = action.payload.id - 1;
