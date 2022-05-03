@@ -25,11 +25,13 @@ const YourTrackList = () => {
 					albumArt: song.Album.imageUrl,
 					songId: song.id,
 					userName: song.User.username,
-                    userId: song.User.id
+                    userId: song.User.id,
+                    genreId: song.Genre.id,
+                    genreName: song.Genre.name
 				};
 			});
 
-            setYourSongList(mapped.filter(song => song.userId === currentUser));
+            setYourSongList(mapped?.filter(song => song.userId === currentUser));
 	}, [songList, currentUser]);
 
     return (
