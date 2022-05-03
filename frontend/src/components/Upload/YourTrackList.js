@@ -45,7 +45,7 @@ const YourTrackList = () => {
             .map((song) => {
                 return (
                     <>
-                    <YourTrackRow key={song.songId} song={song} />
+                    <YourTrackRow key={song.id} song={song} />
                     </>
                 )
             })}
