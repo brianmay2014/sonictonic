@@ -9,7 +9,7 @@ function CommentRow({ song, comment }) {
 	// const dispatch = useDispatch();
 
 	const dispatch = useDispatch();
-	const currentUser = useSelector((state) => state.session.user);
+	const currentUser = useSelector((state) => state?.session.user);
 	const [showConfirm, setShowConfirm] = useState(false);
 	// const currentUserId = currentUser.username;
 
@@ -47,7 +47,7 @@ function CommentRow({ song, comment }) {
 				<p className="comment-user">{comment?.User?.username}</p>
 				<p className="comment-body">{comment?.body}</p>
 			</div>
-			{comment.User.id === currentUser.id &&  (
+			{comment.User.id === currentUser?.id &&  (
 				<div>
 					<button
 						className="comment-delete-btn btn"

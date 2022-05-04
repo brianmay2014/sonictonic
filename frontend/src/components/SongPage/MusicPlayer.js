@@ -7,7 +7,7 @@ import './SongPage.css';
 function MusicPlayer({song, currentUser}) {
 	// const dispatch = useDispatch();
 
-    const currentUsername = currentUser.username;
+    const currentUsername = currentUser?.username;
 	// const { id } = useParams();
 	// console.log(id);
 	// const song = useSelector((state) => state.song[id]);
