@@ -41,7 +41,10 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 	}));
 
     //add validations here?
-    router.post(`/`, asyncHandler( async function (req, res) {
+    router.post(
+        `/`,
+        songValidations.validateSongCreate,
+        asyncHandler( async function (req, res) {
 
         const {songName, songUrl, albumName, albumArt, genreId, currentUser} = req.body;
         const album = await Album.create({
@@ -72,7 +75,7 @@ router.get(`/all`, asyncHandler(async function(req, res) {
             include: [Album, User, Genre]
         });
 
-        console.log(req.body);
+        // console.log(req.body);
 
         song.songName = await req.body.songName;
         song.genreId = await req.body.genreId;

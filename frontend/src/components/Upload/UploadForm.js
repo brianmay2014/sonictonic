@@ -17,6 +17,8 @@ const UploadForm = () => {
 	const [albumName, setAlbumName] = useState("");
 	const [albumArt, setAlbumArt] = useState("");
     const [genre, setGenre] = useState("Alternative Rock");
+	const [errors, SetErrors] = useState([]);
+	const [submit, setSubmit] = useState(false);
 
     const history = useHistory();
 	const dispatch = useDispatch();
@@ -39,53 +41,104 @@ const UploadForm = () => {
         const genreId = genreArr.indexOf(genre) + 1;
         const songData = { songName, songUrl, albumName, albumArt, genreId, currentUser};
 
-        dispatch(createSong(songData));
+        // dispatch(createSong(songData));
 
-		alert("Song uploaded, redirecting to your track page");
-        //redirect user to their newly uploaded song
-        //in the list of their uploaded songs
-        history.push('/yourtracks');
+		SetErrors([]);
+
+		let newSong = await dispatch(createSong(songData)).catch(
+			async (res) => {
+				const data = await res.json();
+				if (data && data.errors) SetErrors(data.errors);
+			}
+		);
+
+		// let newSong = {};
+
+		// try {
+		// 	newSong = await dispatch(createSong(songData));
+		// } catch (error) {
+		// 	(() => async (res) => {
+		// 		const data = await res.json();
+		// 		if (data && data.errors) SetErrors(data.errors);
+		// 	})();
+		// }
+
+		console.log('*-//*-*/-/*-*/-*-//*-*-/*/-', newSong);
+		
+
+		if (newSong){
+
+			alert("Song uploaded, redirecting to your track page");
+	
+			// redirect user to their newly uploaded song
+			// in the list of their uploaded songs
+			history.push('/yourtracks');
+		}
         
     }
 
+
+	// useEffect(()=> {
+	// 	if (errors.length === 0) {
+	
+	// 	  setSubmit(true);
+	// 	}
+	// 	if (errors.length) {
+	// 		setSubmit(false);
+	// 	}
+	// }, [errors]);
+	
+	// useEffect(() => {
+	// 	if (submit === true && errors.length === 0) {
+	// 		alert("Song uploaded, redirecting to your track page");
+	// 	}
+	// }, [submit]);
+
+
 	return (
 		<form className="new-song-form" onSubmit={handleSubmit}>
+			<ul className="form-errors">
+				{errors.map((error, idx) => (
+					<li key={idx}>{error}</li>
+				))}
+			</ul>
 			<label>Song Name</label>
 			<input
 				type="text"
 				value={songName}
 				required
-				onChange={(e) => setSongName(e.target.value)}
+				onChange={(e) => setSongName(e.target.value.trim())}
 			/>
 			<label>Song Link</label>
 			<input
 				type="text"
 				value={songUrl}
 				required
-				onChange={(e) => setSongUrl(e.target.value)}
+				onChange={(e) => setSongUrl(e.target.value.trim())}
 			/>
-            <label>Genre</label>
-            <select
-                onChange={(e)=>setGenre(e.target.value)}
-                value={genre}>
-                {genreList?.map(genre =>
-                    <option key={genre.id}>{genre.genreName}</option>)}
-                </select>
+			<label>Genre</label>
+			<select onChange={(e) => setGenre(e.target.value)} value={genre}>
+				{genreList?.map((genre) => (
+					<option key={genre.id}>{genre.genreName}</option>
+				))}
+			</select>
 			<label>Album Name</label>
 			<input
 				type="text"
 				value={albumName}
 				required
-				onChange={(e) => setAlbumName(e.target.value)}
+				onChange={(e) => setAlbumName(e.target.value.trim())}
 			/>
 			<label>Album Art Link</label>
 			<input
 				type="text"
 				value={albumArt}
 				required
-				onChange={(e) => setAlbumArt(e.target.value)}
+				onChange={(e) => setAlbumArt(e.target.value.trim())}
 			/>
-            <button className="btn" type='submit'>Upload new track</button>
+			<button className="btn" type="submit">
+				Upload new track
+			</button>
 		</form>
 	);
 };

@@ -12,8 +12,23 @@ const genreId = check('genreId')
     .notEmpty()
     .withMessage("Genre cannot be empty")
     .isInt({ min: 0});
+const songUrl = check("songUrl")
+	.notEmpty()
+	.withMessage("Must include a link to upload a song")
+	.isURL({ require_protocol: false, require_host: false })
+    .withMessage("Song Link must be a URL");
+const albumArt = check("albumArt")
+	.notEmpty()
+	.withMessage("Must include a link to upload a song")
+	.isURL({ require_protocol: false, require_host: false })
+	.withMessage("Album Art Link must be a URL");
 
 exports.validateSongCreate = [
+    songName,
+    albumName,
+    genreId,
+    songUrl,
+    albumArt,
     handleValidationErrors
 ]
 
@@ -22,3 +37,5 @@ exports.validateSongEdit = [
     genreId,
     handleValidationErrors
 ]
+
+
