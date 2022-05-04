@@ -10,6 +10,8 @@ const { User, Album, Genre, Song } = require("../../db/models");
 // const { check } = require("express-validator");
 // const { handleValidationErrors } = require("../../utils/validation");
 
+const songValidations = require('../../validations/songs');
+
 const router = express.Router();
 
 
@@ -61,15 +63,19 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     }))
 
-    router.put(`/:id`, asyncHandler(async function (req, res) {
+    router.put(
+        `/:id`,
+        songValidations.validateSongEdit,
+        asyncHandler(async function (req, res) {
         
         const song = await Song.findByPk(req.body.songId, {
             include: [Album, User, Genre]
         });
+
         song.songName = await req.body.songName;
         song.genreId = await req.body.genreId;
         await song.save();
-        
+
         return res.json(song);
     }));
 

@@ -13,6 +13,7 @@ function YourTrackRow({ song }) {
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
 	const [genre, setGenre] = useState("");
+	const [errors, setErrors] = useState([]);
 
 	// const songsObj = useSelector((state) => state.song);
 	// const songList = Object.values(songsObj);
@@ -68,10 +69,38 @@ function YourTrackRow({ song }) {
 
 		console.log(songData);
 
-		dispatch(editSong(songData));
+		// dispatch(editSong(songData));
 
-		setShowEditForm(false);
+	
+		dispatch(editSong(songData)).catch(
+			async (res) => {
+				const data = await res.json();
+				if (data && data.errors) setErrors(data.errors);
+			}
+			
+			);
+			
+		
+				setShowEditForm(false);
+		
+
 	};
+
+	useEffect(()=> {
+		if (errors.length === 0) {
+			setShowEditForm(false);
+		}
+		if (errors.length) {
+			setShowEditForm(true);
+		}
+	}, [errors])
+
+	useEffect(() => {
+		if (showEditForm === false) {
+			setErrors([]);
+		}
+	}, [showEditForm])
+
 
 	const handleDelete = async (e) => {
 		e.preventDefault();
@@ -133,12 +162,17 @@ function YourTrackRow({ song }) {
 			{showEditForm && (
 				// <div className="modal-backing">
 				<form className="new-song-form" onSubmit={handleEdit}>
+					<ul className="form-errors">
+						{errors.map((error, idx) => (
+							<li key={idx}>{error}</li>
+						))}
+					</ul>
 					<label>Song Name</label>
 					<input
 						type="text"
 						value={songName}
 						required
-						onChange={(e) => setSongName(e.target.value)}
+						onChange={(e) => setSongName(e.target.value.trim())}
 					/>
 					<label>Genre</label>
 					<select
