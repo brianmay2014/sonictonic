@@ -39,3 +39,29 @@
     top: 15px;
     right: 15px;
 }
+
+.confirm-delete{
+    position: absolute;
+    font-size: .8em;
+   background-color: var(--lightishblue);
+   right: 100px;
+   border: 2px var(--midindigo) solid;
+   border-radius: 3px;
+   color: var(--midblue);
+   width: 150px;
+   padding-left: 12px;
+   padding-right: 5px;
+   height: 90px;
+}
+
+
+
+.btn-del {
+    background-color: var(--midblue);
+    color: white;
+    padding: 5px;
+    font-size: .7em;
+    border-radius: 5px;
+    border: 1px solid #006BB8;
+    margin-right: 8px;
+}

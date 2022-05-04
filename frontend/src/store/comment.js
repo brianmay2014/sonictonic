@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const GET_SONG_COMMENTS = "comment/GET_SONG_COMMENTS";
 const CREATE_COMMENT = 'comment/CREATE_COMMENT';
+const DELETE_COMMENT = 'comment/DELETE_COMMENT';
 
 const getComments = (comments) => {
 	return {
@@ -11,13 +12,18 @@ const getComments = (comments) => {
 };
 
 const createNewComment = (comment) => {
-
-	console.log('inside action creator for comment');
 	return {
 		type: CREATE_COMMENT,
 		payload: comment,
 	}
 }
+
+const remove = (comment) => {
+	return {
+		type: DELETE_COMMENT,
+		payload: comment,
+	};
+};
 
 
 export const getSongComments = (id) => async (dispatch) => {
@@ -49,6 +55,19 @@ export const createComment = (commentData) => async (dispatch) => {
 	}
 };
 
+export const deleteComment = (id) => async (dispatch) => {
+	const response = await csrfFetch(`/api/song/comment/${id}`, {
+		method: "DELETE",
+		body: JSON.stringify({ commentId: id }),
+	});
+
+	if (response.ok) {
+		const id = await response.json();
+		dispatch(remove(id));
+		return id;
+	}
+}
+
 const initialState = { };
 
 const commentReducer = (state = initialState, action) => {
@@ -67,6 +86,10 @@ const commentReducer = (state = initialState, action) => {
 			// newState.comment = {...newState.comment};
 			newState[action.payload.id] = action.payload;
 			return newState;
+		case DELETE_COMMENT:
+				newState = {...state};
+				delete newState[action.payload];
+				return newState;
 		default:
 			return state;
 	}

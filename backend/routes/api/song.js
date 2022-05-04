@@ -116,6 +116,16 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         return res.json(song);
     }));
 
+       router.delete(
+			`/comment/:id`,
+			asyncHandler(async function (req, res) {
+                const commentId = parseInt(req.body.commentId, 10);
+
+
+				await Comment.destroy({ where: { id: commentId } });
+				return res.json(commentId);
+			})
+		); 
 
     router.delete(`/:id`, asyncHandler(async function (req, res) {
         const songId = parseInt(req.body.songId, 10);
