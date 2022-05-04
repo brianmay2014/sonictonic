@@ -72,6 +72,8 @@ router.get(`/all`, asyncHandler(async function(req, res) {
             include: [Album, User, Genre]
         });
 
+        console.log(req.body);
+
         song.songName = await req.body.songName;
         song.genreId = await req.body.genreId;
         await song.save();

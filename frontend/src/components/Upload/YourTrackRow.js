@@ -26,7 +26,7 @@ function YourTrackRow({ song }) {
 
 	const editFormSong = (e) => {
 		e.preventDefault();
-		setGenre(song.Genre.genreName);
+		setGenre(genre);
 		setShowEditForm(true);
 	};
 	const editFormCancel = (e) => {
