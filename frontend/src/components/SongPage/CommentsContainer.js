@@ -16,7 +16,7 @@ function CommentsContainer({ song, currentUser }) {
     const songCommentObj = useSelector((state) => state.comment);
 	const songComments = Object.values(songCommentObj);
     
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [commentBody, setCommentBody] = useState('');
 
 	useEffect(() => {
@@ -25,8 +25,6 @@ function CommentsContainer({ song, currentUser }) {
 
     const commentSubmit = async (e) => {
         e.preventDefault();
-
-        //call 
 
         const commentData = { body: commentBody, songId: id, userId: currentUserId}
 
@@ -61,9 +59,9 @@ function CommentsContainer({ song, currentUser }) {
 				</button>
 			</form>
 			<div className="comment-display">
-                {songComments?.map((comment) => {
+                {songComments.map((comment) => {
                     return(
-                        <CommentRow key={comment?.id} song={song} comment={comment}/>
+                        <CommentRow key={comment.id} song={song} comment={comment}/>
                     )
                 })}
 			</div>

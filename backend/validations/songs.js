@@ -22,6 +22,9 @@ const albumArt = check("albumArt")
 	.withMessage("Must include a link to upload a song")
 	.isURL({ require_protocol: false, require_host: false })
 	.withMessage("Album Art Link must be a URL");
+const body = check("body")
+	.notEmpty()
+	.withMessage("Comment body cannot be empty");
 
 exports.validateSongCreate = [
     songName,
@@ -38,4 +41,7 @@ exports.validateSongEdit = [
     handleValidationErrors
 ]
 
-
+exports.validationCommentCreate = [
+    body,
+    handleValidationErrors
+]
