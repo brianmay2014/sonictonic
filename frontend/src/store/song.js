@@ -99,14 +99,14 @@ export const createSong = (songData) => async (dispatch) => {
     body: JSON.stringify(songData)}
     );
 
-    
+    console.log('hello from the inside');
 
     if (response.ok) {
         const song = await response.json();
-        console.log('inside -*/-*/-*/-*/-*/*/*/*//**//**/*/ thunk', song);
+        // console.log('inside -*/-*/-*/-*/-*/*/*/*//**//**/*/ thunk', song);
         dispatch(createNewSong(song));
         return song;
-    };
+    }
 
 };
 
@@ -138,9 +138,8 @@ const songReducer = (state = initialState, action) => {
             return { ...allSongs, ...state };
         case CREATE_SONG:
             newState = {...state};
-            newState.songs = [...newState.songs];
-            //very questionable methods
-            newState.songs.push(action.payload);
+            newState.song = {...newState.song};
+            newState.song[action.payload.id] = action.payload;
             return newState;
         case UPDATE_SONG:
             newState = {...state, [action.payload.id]: action.payload};

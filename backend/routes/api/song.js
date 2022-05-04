@@ -64,6 +64,8 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
         });
 
+        return res.json(song);
+
     }))
 
     router.put(
