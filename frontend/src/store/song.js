@@ -99,10 +99,15 @@ export const createSong = (songData) => async (dispatch) => {
     body: JSON.stringify(songData)}
     );
 
+    
+
     if (response.ok) {
         const song = await response.json();
+        console.log('inside -*/-*/-*/-*/-*/*/*/*//**//**/*/ thunk', song);
         dispatch(createNewSong(song));
+        return song;
     };
+
 };
 
 export const deleteSong = (id) => async (dispatch) => {

@@ -18,7 +18,6 @@ const UploadForm = () => {
 	const [albumArt, setAlbumArt] = useState("");
     const [genre, setGenre] = useState("Alternative Rock");
 	const [errors, SetErrors] = useState([]);
-	const [submit, setSubmit] = useState(false);
 
     const history = useHistory();
 	const dispatch = useDispatch();
@@ -52,20 +51,8 @@ const UploadForm = () => {
 			}
 		);
 
-		// let newSong = {};
-
-		// try {
-		// 	newSong = await dispatch(createSong(songData));
-		// } catch (error) {
-		// 	(() => async (res) => {
-		// 		const data = await res.json();
-		// 		if (data && data.errors) SetErrors(data.errors);
-		// 	})();
-		// }
-
 		console.log('*-//*-*/-/*-*/-*-//*-*-/*/-', newSong);
 		
-
 		if (newSong){
 
 			alert("Song uploaded, redirecting to your track page");
