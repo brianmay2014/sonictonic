@@ -39,8 +39,6 @@ router.get(`/all`, asyncHandler(async function(req, res) {
                 include: [User, Song]
             }
         );
-        // console.log('-*/-*/-*/-*/-*/-*/inside get comment route handler:',
-        // comments)
         return res.json(comments);
     }))
     
@@ -85,15 +83,20 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     router.post(
         `/:id/comment`,
-        songValidations.validationCommentCreate,
+        // songValidations.validationCommentCreate,
         asyncHandler( async function (req, res) {
             const { body, songId, userId } = req.body;
             const comment = await Comment.create({
                 body, userId, songId
             });
 
-            return res.json(comment);
-        }))
+            const returnComment = await Comment.findByPk(
+                comment.id,
+                {include: [User, Song]}
+                );
+
+            return res.json(returnComment);
+        }));
 
     router.put(
         `/:id`,

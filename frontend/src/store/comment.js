@@ -11,6 +11,8 @@ const getComments = (comments) => {
 };
 
 const createNewComment = (comment) => {
+
+	console.log('inside action creator for comment');
 	return {
 		type: CREATE_COMMENT,
 		payload: comment,
@@ -62,8 +64,8 @@ const commentReducer = (state = initialState, action) => {
             return { ...state, ...songComments };
 		case CREATE_COMMENT:
 			newState = {...state};
-			newState.comment = {...newState.comment};
-			newState.comment[action.payload.id] = action.paylod;
+			// newState.comment = {...newState.comment};
+			newState[action.payload.id] = action.payload;
 			return newState;
 		default:
 			return state;

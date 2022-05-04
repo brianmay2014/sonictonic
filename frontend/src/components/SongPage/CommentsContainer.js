@@ -28,9 +28,10 @@ function CommentsContainer({ song, currentUser }) {
 
         const commentData = { body: commentBody, songId: id, userId: currentUserId}
 
-        console.log(commentData);
+        console.log('commentdata, before dispatch', commentData);
 
         dispatch(createComment(commentData));
+        console.log('after dispatch to thunk');
 
         // setErrors([]);
 
@@ -40,7 +41,7 @@ function CommentsContainer({ song, currentUser }) {
 		// 		if (data && data.errors) setErrors(data.errors);
 		// 	}
 		// );
-
+ 
     }
 
 	return (
@@ -59,11 +60,17 @@ function CommentsContainer({ song, currentUser }) {
 				</button>
 			</form>
 			<div className="comment-display">
-                {songComments.map((comment) => {
-                    return(
-                        <CommentRow key={comment.id} song={song} comment={comment}/>
-                    )
-                })}
+				{console.log("-*/-*/-*/-*/inside JSX")}
+				{songComments.map((comment) => {
+					return (
+						<CommentRow
+							key={`comment${comment?.id}`}
+							// key={comment?.id}
+							song={song}
+							comment={comment}
+						/>
+					);
+				})}
 			</div>
 		</div>
 	);

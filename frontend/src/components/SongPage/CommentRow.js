@@ -10,7 +10,7 @@ function CommentRow({ song, comment }) {
 	const currentUser = useSelector((state) => state.session.user);
 	const currentUserId = currentUser.username;
 
-	const [commentBody, setCommentBody] = useState("");
+	// const [commentBody, setCommentBody] = useState("");
 
 
 	// const commentDelete = async (e) => {
@@ -22,7 +22,7 @@ function CommentRow({ song, comment }) {
 
 	return (
 		<div className="comment-row">
-			<p className='comment-user'>{comment.User?.username}</p>
+			<p className='comment-user'>{comment?.User?.username}</p>
 			<p className='comment-body'>{comment?.body}</p>
 		</div>
 	);
