@@ -82,6 +82,18 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     }))
 
+
+    router.post(
+        `/:id/comment`,
+        asyncHandler( async function (req, res) {
+            const { body, songId, userId } = req.body;
+            const comment = await Comment.create({
+                body, userId, songId
+            });
+
+            return res.json(comment);
+        }))
+
     router.put(
         `/:id`,
         songValidations.validateSongEdit,

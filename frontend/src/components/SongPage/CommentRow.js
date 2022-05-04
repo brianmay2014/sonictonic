@@ -22,8 +22,8 @@ function CommentRow({ song, comment }) {
 
 	return (
 		<div className="comment-row">
-			<p className='comment-user'>{comment.User.username}</p>
-			<p className='comment-body'>{comment.body}</p>
+			<p className='comment-user'>{comment.User?.username}</p>
+			<p className='comment-body'>{comment?.body}</p>
 		</div>
 	);
 }

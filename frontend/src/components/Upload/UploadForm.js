@@ -50,8 +50,6 @@ const UploadForm = () => {
 				if (data && data.errors) SetErrors(data.errors);
 			}
 		);
-
-		console.log('*-//*-*/-/*-*/-*-//*-*-/*/-', newSong);
 		
 		if (newSong){
 
