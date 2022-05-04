@@ -13,16 +13,17 @@ function CommentRow({ song, comment }) {
 	const [commentBody, setCommentBody] = useState("");
 
 
-    console.log(song);
 	// const commentDelete = async (e) => {
-	// 	e.preventDefault();
-	// };
-    console.log('-*/-*/-*/-*/comment inside-*/-*/-*/-*/', comment)
+        // 	e.preventDefault();
+        // };
+    
+     // console.log(song);
+    // console.log('-*/-*/-*/-*/comment inside-*/-*/-*/-*/', comment)
 
 	return (
 		<div className="comment-row">
-			<p>{comment.User.username}</p>
-			<p>{comment.body}</p>
+			<p className='comment-user'>{comment.User.username}</p>
+			<p className='comment-body'>{comment.body}</p>
 		</div>
 	);
 }
