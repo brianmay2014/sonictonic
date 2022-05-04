@@ -8,22 +8,34 @@ function CommentRow({ song, comment }) {
 	// const dispatch = useDispatch();
 
 	const currentUser = useSelector((state) => state.session.user);
-	const currentUserId = currentUser.username;
+	// const currentUserId = currentUser.username;
 
 	// const [commentBody, setCommentBody] = useState("");
 
+	const commentDelete = async (e) => {
+		e.preventDefault();
+	};
 
-	// const commentDelete = async (e) => {
-        // 	e.preventDefault();
-        // };
-    
-     // console.log(song);
-    // console.log('-*/-*/-*/-*/comment inside-*/-*/-*/-*/', comment)
+	// console.log(song);
+	// console.log('-*/-*/-*/-*/comment inside-*/-*/-*/-*/', comment)
 
 	return (
 		<div className="comment-row">
-			<p className='comment-user'>{comment?.User?.username}</p>
-			<p className='comment-body'>{comment?.body}</p>
+			<div className="row-content">
+				<p className="comment-user">{comment?.User?.username}</p>
+				<p className="comment-body">{comment?.body}</p>
+			</div>
+			{comment.User.id === currentUser.id &&  (
+				<div>
+					<button
+						className="comment-delete-btn btn"
+						id={`delete-${comment?.id}`}
+						onClick={commentDelete}
+					>
+						Delete
+					</button>
+				</div>
+			)}
 		</div>
 	);
 }
