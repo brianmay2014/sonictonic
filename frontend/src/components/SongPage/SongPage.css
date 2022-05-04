@@ -1,0 +1,15 @@
+.music-player{
+    margin: 30px auto;
+    width: 70%;
+    border: 1px black solid;
+}
+
+/* .new-comment-form{
+    padding-top: 30px;
+} */
+
+.comment-display{
+    margin: 0 auto;
+    width: 50%;
+    border: 1px solid black;
+}
