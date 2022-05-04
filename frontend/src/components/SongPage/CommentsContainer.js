@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { getAllSongs } from "../../store/song";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./SongPage.css";
 import CommentRow from "./CommentRow";
+import { getSongComments } from '../../store/comment';
 
 function CommentsContainer({ song, currentUser }) {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
+    const { id } = useParams();
+    console.log('params id', id);
 
-    const currentUserId = currentUser.id;
-    const currentUsername = currentUser.username
+    const currentUserId = currentUser?.id;
+    const currentUsername = currentUser?.username
+    const songCommentObj = useSelector((state) => state.comment);
+	const songComments = Object.values(songCommentObj);
 
-	// const { id } = useParams();
-	// console.log(id);
-	// const song = useSelector((state) => state.song[id]);
+    console.log('-*/-*/-*/ song -*/-*/ comennts', songComments);
 
-	// console.log(song);
     const [ commentBody, setCommentBody] = useState('');
 
-	// useEffect(() => {
-	// 	dispatch(getAllSongs());
-	// }, [dispatch]);
+	useEffect(() => {
+        // console.log('useeffect songid', currentSongId)
+		dispatch(getSongComments(id));
+	}, [dispatch]);
 
     const commentSubmit = async (e) => {
         e.preventDefault();
-
-
-
 
     }
 
@@ -46,9 +46,11 @@ function CommentsContainer({ song, currentUser }) {
 				</button>
 			</form>
 			<div className="comment-display">
-				<CommentRow song={song} currentUser={currentUser} />
-				<CommentRow song={song} currentUser={currentUser} />
-				<CommentRow song={song} currentUser={currentUser} />
+                {songComments?.map((comment) => {
+                    return(
+                        <CommentRow key={comment.id} song={song} comment={comment}/>
+                    )
+                })}
 			</div>
 		</div>
 	);

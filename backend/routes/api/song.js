@@ -4,7 +4,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 
 // const { setTokenCookie, restoreUser } = require("../../utils/auth");
-const { User, Album, Genre, Song } = require("../../db/models");
+const { User, Album, Genre, Song, Comment } = require("../../db/models");
 
 //validation and check
 // const { check } = require("express-validator");
@@ -30,6 +30,19 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         const genres = await Genre.findAll();
         return res.json(genres);
     }))
+
+    router.get(`/:id/comments`, asyncHandler(async function(req, res) {
+        songId = req.params.id;
+        const comments = await Comment.findAll(
+            {
+                where: { songId },
+                include: [User, Song]
+            }
+        );
+        // console.log('-*/-*/-*/-*/-*/-*/inside get comment route handler:',
+        // comments)
+        return res.json(comments);
+    }))
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
 		songId = req.params.id;
@@ -39,6 +52,7 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         //Bill note
 		//Similarly, you could add the include the models in your .get('/:id' instead and res.redirect to that route
 	}));
+
 
     //add validations here?
     router.post(
