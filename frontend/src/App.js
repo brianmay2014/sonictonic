@@ -10,6 +10,7 @@ import CabinetDisplay from './components/CabinetDisplay';
 import TrackNavButtons from './components/Upload/NavTrackButtons';
 import UploadForm from './components/Upload/UploadForm';
 import YourTrackList from './components/Upload/YourTrackList';
+import SongPage from './components/SongPage';
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
 					<Route path="/yourtracks">
 						<TrackNavButtons />
             			<YourTrackList />
+					</Route>
+					<Route path='/song/:id'>
+						<SongPage />
 					</Route>
           <Route path="/song/:songId">
             {/* <BigPlayer /> */}

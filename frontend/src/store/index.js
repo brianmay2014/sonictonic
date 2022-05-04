@@ -4,11 +4,13 @@ import thunk from "redux-thunk";
 import genreReducer from "./genre";
 import sessionReducer from './session';
 import songReducer from './song';
+import commentReducer from './comment';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
 	song: songReducer,
 	genre: genreReducer,
+	comment: commentReducer,
 
 });
 

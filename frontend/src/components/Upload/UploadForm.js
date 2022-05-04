@@ -50,8 +50,6 @@ const UploadForm = () => {
 				if (data && data.errors) SetErrors(data.errors);
 			}
 		);
-
-		console.log('*-//*-*/-/*-*/-*-//*-*-/*/-', newSong);
 		
 		if (newSong){
 
@@ -94,14 +92,14 @@ const UploadForm = () => {
 				type="text"
 				value={songName}
 				required
-				onChange={(e) => setSongName(e.target.value.trim())}
+				onChange={(e) => setSongName(e.target.value)}
 			/>
 			<label>Song Link</label>
 			<input
 				type="text"
 				value={songUrl}
 				required
-				onChange={(e) => setSongUrl(e.target.value.trim())}
+				onChange={(e) => setSongUrl(e.target.value)}
 			/>
 			<label>Genre</label>
 			<select onChange={(e) => setGenre(e.target.value)} value={genre}>
@@ -114,14 +112,14 @@ const UploadForm = () => {
 				type="text"
 				value={albumName}
 				required
-				onChange={(e) => setAlbumName(e.target.value.trim())}
+				onChange={(e) => setAlbumName(e.target.value)}
 			/>
 			<label>Album Art Link</label>
 			<input
 				type="text"
 				value={albumArt}
 				required
-				onChange={(e) => setAlbumArt(e.target.value.trim())}
+				onChange={(e) => setAlbumArt(e.target.value)}
 			/>
 			<button className="btn" type="submit">
 				Upload new track

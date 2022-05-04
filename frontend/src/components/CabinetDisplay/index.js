@@ -7,7 +7,7 @@ import './CabinetDisplay.css';
 
 function CabinetDisplay() {
 
-    const [songArray, setSongArray] = useState([]);
+    // const [songArray, setSongArray] = useState([]);
     const dispatch = useDispatch();
     const songsObj = useSelector(state => state.song);
     const songList = Object.values(songsObj);

@@ -24,7 +24,6 @@ const initialState = {
 
 const genreReducer = (state = initialState, action) => {
 	let newState;
-	console.log("action", action);
 	switch (action.type) {
 		case GET_ALL_GENRES:
 			newState = { ...state };

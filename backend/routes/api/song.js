@@ -4,7 +4,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 
 // const { setTokenCookie, restoreUser } = require("../../utils/auth");
-const { User, Album, Genre, Song } = require("../../db/models");
+const { User, Album, Genre, Song, Comment } = require("../../db/models");
 
 //validation and check
 // const { check } = require("express-validator");
@@ -30,6 +30,17 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         const genres = await Genre.findAll();
         return res.json(genres);
     }))
+
+    router.get(`/:id/comments`, asyncHandler(async function(req, res) {
+        songId = req.params.id;
+        const comments = await Comment.findAll(
+            {
+                where: { songId },
+                include: [User, Song]
+            }
+        );
+        return res.json(comments);
+    }))
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
 		songId = req.params.id;
@@ -39,6 +50,7 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         //Bill note
 		//Similarly, you could add the include the models in your .get('/:id' instead and res.redirect to that route
 	}));
+
 
     //add validations here?
     router.post(
@@ -68,6 +80,24 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
     }))
 
+
+    router.post(
+        `/:id/comment`,
+        // songValidations.validationCommentCreate,
+        asyncHandler( async function (req, res) {
+            const { body, songId, userId } = req.body;
+            const comment = await Comment.create({
+                body, userId, songId
+            });
+
+            const returnComment = await Comment.findByPk(
+                comment.id,
+                {include: [User, Song]}
+                );
+
+            return res.json(returnComment);
+        }));
+
     router.put(
         `/:id`,
         songValidations.validateSongEdit,
@@ -86,6 +116,16 @@ router.get(`/all`, asyncHandler(async function(req, res) {
         return res.json(song);
     }));
 
+       router.delete(
+			`/comment/:id`,
+			asyncHandler(async function (req, res) {
+                const commentId = parseInt(req.body.commentId, 10);
+
+
+				await Comment.destroy({ where: { id: commentId } });
+				return res.json(commentId);
+			})
+		); 
 
     router.delete(`/:id`, asyncHandler(async function (req, res) {
         const songId = parseInt(req.body.songId, 10);

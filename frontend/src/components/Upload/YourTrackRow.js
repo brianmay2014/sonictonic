@@ -172,7 +172,7 @@ function YourTrackRow({ song }) {
 						type="text"
 						value={songName}
 						required
-						onChange={(e) => setSongName(e.target.value.trim())}
+						onChange={(e) => setSongName(e.target.value)}
 					/>
 					<label>Genre</label>
 					<select
