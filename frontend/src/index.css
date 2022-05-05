@@ -16,7 +16,8 @@
 }
 
 .form-errors {
-    color: red;
+    color: rgb(224, 96, 96);
+    list-style: none;
 }
 
 a {

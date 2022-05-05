@@ -19,7 +19,13 @@ const validateSignup = [
 	check("username")
 		.exists({ checkFalsy: true })
 		.isLength({ min: 4 })
-		.withMessage("Please provide a username with at least 4 characters."),
+		.withMessage("Please provide a username with at least 4 characters.")
+		.custom(value => {
+        if (value.endsWith(' ')) {
+            throw Error("Username cannot end with a space");
+        }
+        return true;
+    }),
 	check("username")
 		.not()
 		.isEmail()
