@@ -2,7 +2,7 @@
 
 
 .btn {
-    background-color: var(--midblue);
+    background-color: var(--lightblue);
     color: white;
     padding: 5px;
     border-radius: 3px;
@@ -13,6 +13,7 @@
 .btn:hover {
     background-color: var(--midindigo);
     border: 1px solid var(--darkindigo);
+    box-shadow: 0 0 8px var(--lightblue);
 }
 
 .form-errors {
