@@ -52,7 +52,7 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 	}));
 
 
-    //add validations here?
+
     router.post(
         `/`,
         songValidations.validateSongCreate,

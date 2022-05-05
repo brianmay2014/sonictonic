@@ -133,15 +133,16 @@ const songReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_ALL_SONGS:
-            console.log('reducer------top of get all songs');
+            // console.log('reducer------top of get all songs');
             newState = {...state};
             const allSongs = {};
-            console.log("reducer------ before for each get all songs");
+            // console.log("reducer------ before for each get all songs");
             action.payload.forEach(song => {
+                console.log(song);
                 allSongs[song.id] = song;
             });
-            console.log("reducer------ after for each get all songs");
-            return { ...allSongs, ...state };
+            // console.log("reducer------ after for each get all songs");
+            return { ...state, ...allSongs };
         case CREATE_SONG:
             newState = {...state};
             console.log('inside create song reducer');

@@ -19,6 +19,7 @@ function YourTrackRow({ song }) {
 	// const songList = Object.values(songsObj);
 
 	const genreList = useSelector((state) => state.genre.genres);
+	const songList = useSelector((state) => state.song);
 	const currentUser = useSelector((state) => state.session.user.id);
 
 	// const history = useHistory();
@@ -107,7 +108,10 @@ function YourTrackRow({ song }) {
 		//hide form
 		setShowDeleteForm(false);
 	};
-
+	
+	if (!song) {
+		return 'loading...';
+	}
 	return (
 		<div>
 			{console.log(`-----------------track row for ${song.id}`)}
