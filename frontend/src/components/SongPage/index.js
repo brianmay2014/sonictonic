@@ -25,11 +25,28 @@ const currentUser = useSelector((state) => state.session.user);
 			dispatch(getAllSongs());
 		}, [dispatch]);
 
+    const title = useSelector((state) => state.song[id]?.songName);
+	const artist = useSelector((state) => state.song[id]?.User.username);
+	const audioSrc = useSelector((state) => state.song[id]?.url);
+	const image = useSelector((state) => state.song[id]?.Album.imageUrl);
+	const color = "#a2b3ca";
 
     return (
 		<div className="song-page-container">
+      <div className='music-container'>
+			<div className="track-info">
+				<h2 className="title">{title}</h2>
+				<h3 className="artist">{artist}</h3>
+			</div>
+			<img
+				className="artwork"
+				src={image}
+				alt={`track artwork for ${title} by ${artist}`}
+			/>
+
 			<MusicPlayer song={song} />
-      <AudioPlayer song={song} />
+      </div>
+			{/* <AudioPlayer song={song} /> */}
 			<CommentsContainer song={song} currentUser={currentUser} />
 		</div>
 	);

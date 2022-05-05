@@ -1,8 +1,21 @@
-.music-player{
-    margin: 30px auto;
-    width: 65%;
-    border: 1px black solid;
+.music-container{
+    margin: 30px auto 0;
+    border: 1px solid ;
     border-radius: 3px;
+
+        width: 60%;
+        min-width: 666px;
+     border: 1px solid var(--lightishblue);
+     border-radius: 5px;
+     padding: 30px;
+     background: linear-gradient(217deg, rgba(196,185,228,.7), rgba(185,226,221,.9) 70.71%),
+            linear-gradient(127deg, rgba(185,226,221,.7), rgba(189,204,225,0.9) 70.71%),
+            linear-gradient(336deg, rgba(189,204,225,0.7), rgba(196,185,228,.9) 70.71%);
+     /* background-color: linear-gradient(yellow, red); */
+     box-shadow: 0 15px 30px rgba(189, 204, 225, 0.5);
+     color: var(--lightbg);
+    color:rgb(196, 185, 228);
+    color: rgb(185, 226, 221);
 }
 
 /* .new-comment-form{
@@ -98,14 +111,18 @@
      border-radius: 5px;
      /* display: block;
      margin: auto; */
-     height: 380px;
-     width: 380px;
+     height: 300px;
+     width: 300px;
+     position: relative;
+     bottom: 100px;
+     left: 50%;
  }
 
  .track-info {
      text-align: center;
      z-index: 1;
      position: relative;
+     left: 10%;
  }
 
  .title {

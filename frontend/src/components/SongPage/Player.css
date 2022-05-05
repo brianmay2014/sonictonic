@@ -5,9 +5,9 @@
   line-height: 1;
   font-family: inherit;
   width: 100%;
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   /* background-color: #fff; */
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2); */
 }
 .rhap_container:focus:not(:focus-visible) {
   outline: 0;
@@ -16,13 +16,13 @@
   vertical-align: initial;
 }
 
-.rhap_header {
+/* .rhap_header {
   margin-bottom: 10px;
-}
+} */
 
-.rhap_footer {
+/* .rhap_footer {
   margin-top: 5px;
-}
+} */
 
 .rhap_main {
   display: flex;
@@ -77,7 +77,7 @@
 }
 
 .rhap_time {
-  color: #333;
+  color: var(--darkblue);
   font-size: 16px;
   user-select: none;
   -webkit-user-select: none;
@@ -97,12 +97,13 @@
   height: 100%;
   position: absolute;
   z-index: 2;
-  background-color: #868686;
+  background-color: var(--lightblue);
   border-radius: 2px;
 }
 
 .rhap_progress-bar-show-download {
-  background-color: rgba(221, 221, 221, 0.5);
+  /* background-color: rgba(221, 221, 221, 0.5); */
+  background-color: var(--lightishblue);
 }
 
 .rhap_download-progress {
@@ -121,9 +122,9 @@
   height: 20px;
   margin-left: -10px;
   top: -8px;
-  background: #868686;
+  background: var(--darkblue);
   border-radius: 50px;
-  box-shadow: rgba(134, 134, 134, 0.5) 0 0 5px;
+  box-shadow: rgba(189, 204, 225, 1) 0.5px 0.5px 5px;
 }
 
 .rhap_controls-section {
@@ -157,19 +158,18 @@
 
 .rhap_main-controls-button {
   margin: 0 3px;
-  color: #868686;
+  color: var(--darkblue);
   font-size: 35px;
   width: 35px;
   height: 35px;
+
 }
 
 .rhap_play-pause-button {
-  font-size: 40px;
-  width: 40px;
-  height: 40px;
-  /* position: relative;
-  bottom: 40px;
-  color: blue; */
+  font-size: 130px;
+  width: 130px;
+  height: 130px;
+ 
 }
 
 .rhap_volume-controls {
@@ -184,8 +184,9 @@
   font-size: 26px;
   width: 26px;
   height: 26px;
-  color: #868686;
-  margin-right: 6px;
+  color: var(--darkblue);
+  margin-right: 8px;
+
 }
 
 .rhap_volume-container {
@@ -194,6 +195,7 @@
   flex: 0 1 100px;
   user-select: none;
   -webkit-user-select: none;
+  display: none;
 }
 
 .rhap_volume-bar-area {
@@ -242,7 +244,7 @@
   border-radius: 2px;
 }
 
- /* Utils  */
+
 .rhap_button-clear {
   background-color: transparent;
   border: none;
@@ -259,4 +261,10 @@
 }
 .rhap_button-clear:focus:not(:focus-visible) {
   outline: 0;
+}
+
+.rhap_controls-section {
+    position: absolute;
+    top: 28%;
+    left: 28%
 }
