@@ -5,7 +5,7 @@
 import AudioPlayer from "react-h5-audio-player";
 // import "react-h5-audio-player/lib/styles.css";
 import './SongPage.css';
-import './Player.css'
+import './Player.css';
 
 function MusicPlayer({song, currentUser}) {
 	// const dispatch = useDispatch();
