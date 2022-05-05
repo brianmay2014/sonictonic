@@ -110,6 +110,7 @@ function YourTrackRow({ song }) {
 
 	return (
 		<div>
+			{console.log(`inside your track row ${song.id}`)}
 			<div className="your-track-row">
 				<div className="track-button-holder">
 					<button

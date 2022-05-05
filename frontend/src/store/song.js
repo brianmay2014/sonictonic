@@ -138,8 +138,9 @@ const songReducer = (state = initialState, action) => {
             return { ...allSongs, ...state };
         case CREATE_SONG:
             newState = {...state};
-            newState.song = {...newState.song};
-            newState.song[action.payload.id] = action.payload;
+            // newState.song = {...newState.song};
+            newState[action.payload.id] = action.payload;
+            console.log('insidereducer');
             return newState;
         case UPDATE_SONG:
             newState = {...state, [action.payload.id]: action.payload};

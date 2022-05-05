@@ -72,7 +72,7 @@ const initialState = { };
 
 const commentReducer = (state = initialState, action) => {
 	let newState;
-	console.log("action", action);
+	// console.log("action", action);
 	switch (action.type) {
 		case GET_SONG_COMMENTS:
 			// newState = { ...state };
