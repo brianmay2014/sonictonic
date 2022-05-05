@@ -24,9 +24,11 @@ function MusicPlayer({song, currentUser}) {
 	return (
 		<div className="music-player">
 			<p>This is where the Music Player will go</p>
-			<AudioPlayer src={`${song?.url}`} />
+			<AudioPlayer
+				src={`${song?.url}`}
+				showJumpControls={false} />
 			{/* <p>{song.songName} will be the song playing here</p> */}
-		
+
 			{currentUsername}
 		</div>
 	);

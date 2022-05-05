@@ -6,7 +6,7 @@
   font-family: inherit;
   width: 100%;
   padding: 10px 15px;
-  background-color: #fff;
+  /* background-color: #fff; */
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 }
 .rhap_container:focus:not(:focus-visible) {
@@ -145,6 +145,7 @@
   height: 26px;
   color: #868686;
   margin-right: 6px;
+  display: none;
 }
 
 .rhap_main-controls {
@@ -166,6 +167,9 @@
   font-size: 40px;
   width: 40px;
   height: 40px;
+  /* position: relative;
+  bottom: 40px;
+  color: blue; */
 }
 
 .rhap_volume-controls {
@@ -238,7 +242,7 @@
   border-radius: 2px;
 }
 
-/* Utils */
+ /* Utils  */
 .rhap_button-clear {
   background-color: transparent;
   border: none;

@@ -1,7 +1,8 @@
 .music-player{
     margin: 30px auto;
-    width: 70%;
+    width: 65%;
     border: 1px black solid;
+    border-radius: 3px;
 }
 
 /* .new-comment-form{
@@ -65,3 +66,58 @@
     border: 1px solid #006BB8;
     margin-right: 8px;
 }
+
+
+/* custom audio player */
+ /* :root {
+     --active-color: #a2b3ca;
+ } */
+
+ .play-btn {
+     border: none;
+     cursor: pointer;
+     height: 130px;
+     width: 130px;
+     font-size: 5em;
+     border-radius: 65px;
+     background-color: var(--lightblue);
+     color: var(--lightishblue);
+ }
+
+ .audio-player {
+     max-width: 70%;
+     border: 1px solid var(--lightishblue);
+     border-radius: 5px;
+     padding: 30px;
+     box-shadow: 0 15px 30px rgba(162, 179, 202, .5);
+     margin: auto;
+     color: var(--lightbg);
+ }
+
+ .artwork {
+     border-radius: 5px;
+     /* display: block;
+     margin: auto; */
+     height: 380px;
+     width: 380px;
+ }
+
+ .track-info {
+     text-align: center;
+     z-index: 1;
+     position: relative;
+ }
+
+ .title {
+    font-weight: 700;
+    background-color: var(--darkblue);
+    width: fit-content;
+    padding: 5px 10px;
+ }
+ .artist {
+    font-weight: 700;
+    background-color: var(--darkblue);
+    width: fit-content;
+    padding: 5px 10px;
+ }
+

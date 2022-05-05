@@ -5,6 +5,7 @@ import { getAllSongs } from "../../store/song";
 import { useParams } from 'react-router-dom';
 import MusicPlayer from "./MusicPlayer";
 import CommentsContainer from "./CommentsContainer";
+import AudioPlayer from './AudioPlayer';
 
 
 
@@ -27,7 +28,8 @@ const currentUser = useSelector((state) => state.session.user);
 
     return (
 		<div className="song-page-container">
-			<MusicPlayer song={song} currentUser={currentUser} />
+			<MusicPlayer song={song} />
+      <AudioPlayer song={song} />
 			<CommentsContainer song={song} currentUser={currentUser} />
 		</div>
 	);
