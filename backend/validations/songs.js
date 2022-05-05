@@ -4,10 +4,22 @@ const { handleValidationErrors } = require("../utils/validation");
 
 const songName = check('songName')
     .notEmpty()
-    .withMessage('Song name cannot be empty');
+    .withMessage('Song name cannot be empty')
+    .custom(value => {
+        if (value.endsWith(' ')) {
+            throw Error("Song name cannot end with a space");
+        }
+        return true;
+    });
 const albumName = check("albumName")
     .notEmpty()
-    .withMessage("Album name cannot be empty");
+    .withMessage("Album name cannot be empty")
+    .custom(value => {
+        if (value.endsWith(' ')) {
+            throw Error("Album name cannot end with a space");
+        }
+        return true;
+    });
 const genreId = check('genreId')
     .notEmpty()
     .withMessage("Genre cannot be empty")
