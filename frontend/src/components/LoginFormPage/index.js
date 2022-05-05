@@ -70,10 +70,10 @@ function LoginFormPage() {
 				/>
 			</label>
 			<div>
-			<button class="btn login-btn" type="submit">
+			<button className="btn login-btn" type="submit">
 				Log In
 			</button>
-			<button class="btn login-btn" onClick={handleDemoLogin}>
+			<button className="btn login-btn" onClick={handleDemoLogin}>
 				Demo Login
 			</button>
 

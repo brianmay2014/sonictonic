@@ -16,7 +16,8 @@ module.exports = {
 		songId: {
 			allowNull: false,
 			type: Sequelize.INTEGER,
-      references: { model: "Songs"}
+			onDelete: 'cascade',
+      		references: { model: "Songs"}
 		},
 		body: {
 			allowNull: false,
