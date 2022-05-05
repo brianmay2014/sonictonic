@@ -1,11 +1,15 @@
-
+.nav-div{
+    height: 25px;
+}
 .top-bar {
     background-color: var(--darkblue);
     z-index: 1;
     width: 60%;
-    height: 7px;
+    height: 5px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 8px;
+    background: linear-gradient(217deg, var(--darknav1), var(--darknav2) 70.71%),
+            linear-gradient(127deg, var(--darknav2), var(--darknav1) 70.71%);
 }
 .left-nav-links {
     display: flex;
@@ -18,14 +22,24 @@
 nav {
     display: flex;
     width: 60%;
-    height: 30px;
+    height: 22px;
     list-style: none;
     justify-content: space-between;
     margin: 0 auto;
-    background-color: var(--lightblue);
-    padding: 15px;
+    background: linear-gradient(217deg, var(--nav1), var(--nav2) 70.71%),
+            linear-gradient(127deg, var(--nav2), var(--nav1) 70.71%);
+    padding: 8px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+:root {
+    --nav1: rgb(40, 31, 80);
+    --nav2: rgb(35, 63, 91);
+
+    --darknav1: rgb(18, 12, 45);
+    --darknav2: rgb(12, 30, 47);
+    
 }
 
 .profile-dropdown{
@@ -44,4 +58,15 @@ nav {
     display: flex;
     justify-content: space-evenly;
     width: 150px;
+}
+
+.fa-user{
+    font-size: .8em;
+}
+
+.user-btn {
+    position: relative;
+    top: -4px;
+    left: 1px;
+
 }

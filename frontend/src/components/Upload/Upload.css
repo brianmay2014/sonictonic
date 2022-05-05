@@ -3,7 +3,9 @@
     justify-content: space-around;
     width: 250px;
     background-color: var(--darkblue);
-    margin: 20px auto;
+        background: linear-gradient(217deg, var(--darknav2), var(--darknav1) 70.71%),
+            linear-gradient(127deg, var(--darknav1), var(--darknav2) 70.71%);
+    margin: 45px auto;
     border-radius: 5px;
 }
 
@@ -15,7 +17,7 @@
 }
 
 .active#up-button,.active#your-button{
-    background-color:white;
+    background-color: var(--lightbg);
     padding: 5px;
     border-radius: 5px;
     color: var(--darkblue);

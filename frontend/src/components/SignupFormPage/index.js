@@ -36,7 +36,7 @@ function SignupFormPage() {
 
 
     return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className='user-forms'>
 			<ul class="form-errors">
 				{errors.map((error, idx) => (
 					<li key={idx}>{error}</li>

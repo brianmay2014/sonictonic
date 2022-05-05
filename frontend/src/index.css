@@ -5,8 +5,8 @@
     background-color: var(--midblue);
     color: white;
     padding: 5px;
-    border-radius: 5px;
-    border: 2px solid #006BB8;
+    border-radius: 3px;
+    border: 1px solid #006BB8;
 }
 
 .form-errors {
@@ -21,4 +21,55 @@ a {
 
 a:visited {
     color: var(--visitedlink);
+}
+
+body {
+    margin: 0;
+    
+}
+
+html {
+    background: linear-gradient(217deg, var(--backindigo), var(--backfoam) 70.71%),
+            linear-gradient(127deg, var(--backfoam), var(--backblue) 70.71%),
+            linear-gradient(336deg, var(--backblue), var(--backindigo) 70.71%);
+    /* background-size: cover; */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    justify-content: space-between;
+    border: .5px solid var(--lightishblue);
+    border-radius: 5px;
+    box-shadow: 1px 1px 25px var(--lightblue);
+    width: fit-content;
+    margin: 10px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+label {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--darkblue)
+}
+html {
+    display: flex;
+    flex-direction: column;
+   
+}
+input {
+    margin-bottom: 30px;
+}
+
+button {
+    margin-bottom: 30px;
+}
+
+.user-forms {
+    margin-top: 100px;
+    padding-left: 35px;
+    padding-right: 35px;
 }

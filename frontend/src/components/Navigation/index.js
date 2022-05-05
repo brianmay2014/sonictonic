@@ -30,7 +30,7 @@ function Navigation({isLoaded}) {
     }
 
 	return (
-		<div>
+		<div className="nav-div">
 			<div className="top-bar"></div>
 			<nav>
 				<div className="left-nav-links">
