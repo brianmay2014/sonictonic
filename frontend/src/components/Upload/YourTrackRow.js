@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllGenres } from "../../store/song";
 import { editSong } from "../../store/song";
 // import DeleteTrackModal from "./DeleteTrackModal";
-import {deleteSong} from '../../store/song';
+import { deleteSong } from "../../store/song";
 
 function YourTrackRow({ song }) {
 	// const songId = song.id;
-	
+
 	const [showEditForm, setShowEditForm] = useState(false);
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
@@ -71,36 +71,28 @@ function YourTrackRow({ song }) {
 
 		// dispatch(editSong(songData));
 
-	
-		dispatch(editSong(songData)).catch(
-			async (res) => {
-				const data = await res.json();
-				if (data && data.errors) setErrors(data.errors);
-			}
-			
-			);
-			
-		
-				setShowEditForm(false);
-		
+		dispatch(editSong(songData)).catch(async (res) => {
+			const data = await res.json();
+			if (data && data.errors) setErrors(data.errors);
+		});
 
+		setShowEditForm(false);
 	};
 
-	useEffect(()=> {
+	useEffect(() => {
 		if (errors.length === 0) {
 			setShowEditForm(false);
 		}
 		if (errors.length) {
 			setShowEditForm(true);
 		}
-	}, [errors])
+	}, [errors]);
 
 	useEffect(() => {
 		if (showEditForm === false) {
 			setErrors([]);
 		}
-	}, [showEditForm])
-
+	}, [showEditForm]);
 
 	const handleDelete = async (e) => {
 		e.preventDefault();
@@ -114,8 +106,7 @@ function YourTrackRow({ song }) {
 
 		//hide form
 		setShowDeleteForm(false);
-
-	}
+	};
 
 	return (
 		<div>
@@ -183,17 +174,19 @@ function YourTrackRow({ song }) {
 							<option key={genre.id}>{genre.genreName}</option>
 						))}
 					</select>
-					<button
-						className="btn"
-						type="submit"
-						onClick={handleEdit}
-						id={`editsubmit-${song.id}`}
-					>
-						Edit track
-					</button>
-					<button className="btn" onClick={editFormCancel}>
-						Cancel
-					</button>
+					<div className="edit-btn-div">
+						<button
+							className="btn"
+							type="submit"
+							onClick={handleEdit}
+							id={`editsubmit-${song.id}`}
+						>
+							Edit track
+						</button>
+						<button className="btn" onClick={editFormCancel}>
+							Cancel
+						</button>
+					</div>
 				</form>
 				// </div>
 			)}

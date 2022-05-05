@@ -6,7 +6,13 @@
     color: white;
     padding: 5px;
     border-radius: 3px;
-    border: 1px solid #006BB8;
+    border: 1px solid var(--midindigo);
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--midindigo);
+    border: 1px solid var(--darkindigo);
 }
 
 .form-errors {
@@ -53,19 +59,26 @@ label {
     display:flex;
     flex-direction: column;
     align-items: center;
-    color: var(--darkblue)
+    color: var(--darkblue);
+    font-size: smaller;
 }
 html {
     display: flex;
     flex-direction: column;
    
 }
-input {
-    margin-bottom: 30px;
+select, input {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 0.2px var(--inputindigo) solid;
+    border-radius: 2px;
+    box-shadow: 0px 0px 15px var(--inputindigo);
 }
+
 
 button {
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .user-forms {

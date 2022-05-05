@@ -43,15 +43,18 @@ nav {
 }
 
 .profile-dropdown{
-    position: fixed;
-    list-style: none;
-    top: -10px;
-    right: 5%;
-    background-color: var(--darkblue);
-    color: var(--lightbg);
-    border-radius: 5px;
-    padding: 10px;
-    /* font-size: 13px; */
+  position: relative;
+  list-style: none;
+  top: -75px;
+  /* right: -84px; */
+  background-color: var(--lightestblue);
+  color: var(--midblue);
+  border: 1px var(--lightblue) solid;
+  box-shadow: 1px 1px 14px var(--lightblue);
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
 }
 
 .login-links{
@@ -67,6 +70,16 @@ nav {
 .user-btn {
     position: relative;
     top: -4px;
-    left: 1px;
+    /* left: 84px; */
+    transition: all .2s;
+}
 
+.user-btn.btn:hover {
+    background-color: var(--lightestindigo);
+    color: var(--darkblue);
+}
+
+.btn.logout-btn {
+    margin-bottom: 0px;
+    margin-top: 5px;
 }

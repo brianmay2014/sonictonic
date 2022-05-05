@@ -73,4 +73,12 @@
 
 .new-song-form p {
     padding: 20px;
+    margin: 0;
+}
+
+.edit-btn-div{
+   margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  width: 82%;
 }
