@@ -2,7 +2,10 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { getAllSongs } from "../../store/song";
 // import { useParams } from "react-router-dom";
+import AudioPlayer from "react-h5-audio-player";
+// import "react-h5-audio-player/lib/styles.css";
 import './SongPage.css';
+import './Player.css'
 
 function MusicPlayer({song, currentUser}) {
 	// const dispatch = useDispatch();
@@ -21,8 +24,10 @@ function MusicPlayer({song, currentUser}) {
 	return (
 		<div className="music-player">
 			<p>This is where the Music Player will go</p>
+			<AudioPlayer src={`${song?.url}`} />
 			{/* <p>{song.songName} will be the song playing here</p> */}
-            {currentUsername}
+		
+			{currentUsername}
 		</div>
 	);
 }
