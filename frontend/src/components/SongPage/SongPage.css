@@ -41,6 +41,21 @@
 
 }
 
+.comment-login {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px auto;
+  width: 200px;
+  height: 27px;
+  font-weight: 200;
+}
+
+.comment-login .btn{
+    position: relative;
+    top: 13.5px;
+    right: -5px;}
+
 .comment-row{
     border-top : 1px var(--lightindigofade) solid;
     border-bottom : 1px var(--lightpurple) solid;
