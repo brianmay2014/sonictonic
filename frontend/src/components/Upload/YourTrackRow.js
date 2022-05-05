@@ -12,7 +12,7 @@ function YourTrackRow({ song }) {
 	const [showEditForm, setShowEditForm] = useState(false);
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
-	const [genre, setGenre] = useState("");
+	const [genre, setGenre] = useState(song?.Genre?.name);
 	const [errors, setErrors] = useState([]);
 
 	// const songsObj = useSelector((state) => state.song);
@@ -44,9 +44,9 @@ function YourTrackRow({ song }) {
 		setShowDeleteForm(false);
 	};
 
-	useEffect(() => {
-		dispatch(getAllGenres());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(getAllGenres());
+	// }, [dispatch]);
 
 	const handleEdit = async (e) => {
 		e.preventDefault();
@@ -110,6 +110,7 @@ function YourTrackRow({ song }) {
 
 	return (
 		<div>
+			{console.log(`-----------------track row for ${song.id}`)}
 			<div className="your-track-row">
 				<div className="track-button-holder">
 					<button
