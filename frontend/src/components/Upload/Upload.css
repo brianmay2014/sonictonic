@@ -2,7 +2,7 @@
     display:flex;
     justify-content: space-around;
     width: 250px;
-    background-color: var(--darkblue);
+    /* background-color: var(--darkblue); */
         background: linear-gradient(217deg, var(--darknav2), var(--darknav1) 70.71%),
             linear-gradient(127deg, var(--darknav1), var(--darknav2) 70.71%);
     margin: 45px auto;
@@ -17,7 +17,9 @@
 }
 
 .active#up-button,.active#your-button{
-    background-color: var(--lightbg);
+    /* background-color: var(--lightbg); */
+    background: linear-gradient(217deg, var(--lightestindigo), var(--lightestfoam) 70.71%),
+            linear-gradient(127deg, var(--lightestfoam), var(--lightestindigo) 70.71%);
     padding: 5px;
     border-radius: 5px;
     color: var(--darkblue);
