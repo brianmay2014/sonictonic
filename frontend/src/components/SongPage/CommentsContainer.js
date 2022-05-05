@@ -15,7 +15,11 @@ function CommentsContainer({ song, currentUser }) {
     const currentUsername = currentUser?.username
     const songCommentObj = useSelector((state) => state.comment);
 	const songComments = Object.values(songCommentObj);
-    
+
+	const sessionUser = useSelector((state) => state.session.user);
+
+
+   
     // const [errors, setErrors] = useState([]);
     const [commentBody, setCommentBody] = useState('');
 
@@ -46,7 +50,7 @@ function CommentsContainer({ song, currentUser }) {
 
 	return (
 		<div className="comments-container">
-			<form className="new-comment-form" onSubmit={commentSubmit}>
+			{sessionUser && (<form className="new-comment-form" onSubmit={commentSubmit}>
 				<p>Signed in as {currentUsername}</p>
 				<input
 					type="text"
@@ -59,6 +63,7 @@ function CommentsContainer({ song, currentUser }) {
 					Add Comment
 				</button>
 			</form>
+			)}
 			<div className="comment-display">
 				{console.log("-*/-*/-*/-*/inside JSX")}
 				{songComments.map((comment) => {
