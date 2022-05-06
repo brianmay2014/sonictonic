@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSongs } from '../../store/song';
 import YourTrackRow from './YourTrackRow';
+import { getAllGenres } from "../../store/song";
 
 const YourTrackList = () => {
 
@@ -15,14 +16,18 @@ const YourTrackList = () => {
 		dispatch(getAllSongs());
 	}, [dispatch]);
 
-
+    useEffect(() => {
+		dispatch(getAllGenres());
+	}, [dispatch]);
+    
+    
+    if (!songList) return;
     return (
         <div className="your-track-list">
-            {songList?.filter(song => song.userId === currentUser)
+            {songList.filter(song => song.userId === currentUser)
             .map((song) => {
                 return (
-                    
-                    <YourTrackRow key={song.id} song={song} />
+                    <YourTrackRow key={song.id} song={song} genreName={song.Genre.genreName} />
                     
                 )
             })}

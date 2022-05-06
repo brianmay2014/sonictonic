@@ -55,7 +55,14 @@
 }
 .track-text{
     position: relative;
-    width: 200px;
+    top: 5px;
+    right: 54px;
+    width: 275px;
+    font-weight: 300;
+    text-align: right;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+
 }
 
 .track-text p {
