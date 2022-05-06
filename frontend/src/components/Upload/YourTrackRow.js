@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import EditTrackModal from './EditTrackModal';
 import { useDispatch, useSelector } from "react-redux";
-import { getAllGenres } from "../../store/song";
+// import { getAllGenres } from "../../store/song";
 import { editSong } from "../../store/song";
-// import DeleteTrackModal from "./DeleteTrackModal";
 import { deleteSong } from "../../store/song";
 
 function YourTrackRow({ song, genreName }) {
-	// const songId = song.id;
+
 
 	const [showEditForm, setShowEditForm] = useState(false);
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
 	const [genre, setGenre] = useState('');
-
-	// console.log('this row has a genre of ',genreName);
-	// console.log('should be the same',genre)
-	// const [genre, setGenre] = useState(song?.Genre?.name);
+	const [editSubmitted, setEditSubmitted] = useState(false);
 
 	const [errors, setErrors] = useState([]);
 
@@ -32,14 +27,12 @@ function YourTrackRow({ song, genreName }) {
 
 	const editFormSong = (e) => {
 		e.preventDefault();
-		// console.log(song);
 
-		// const editId = e.target.id;
-		// const splitId = editId.split("-");
-		// const songId = splitId[1];
-
-		// setGenre(song.Genre.genreName);
-		setGenre(genreName);
+		if (editSubmitted) {
+			// setGenre(song.Genre.genreName);
+		} else {
+			setGenre(genreName);
+		}
 		setShowEditForm(true);
 	};
 	const editFormCancel = (e) => {
@@ -66,37 +59,31 @@ function YourTrackRow({ song, genreName }) {
 		
 		const handleEdit = async (e) => {
 			e.preventDefault();
+
 			const editId = e.target.id;
 			const splitId = editId.split("-");
 			const songId = splitId[1];
-			
+
 			let genreArr = genreList.map((genre) => {
 				return genre.genreName;
 			});
-			
+
 			const genreId = genreArr.indexOf(genre) + 1;
-			
+
 			const songData = {
 				songId,
 				songName,
 				genreId,
 				currentUser,
 			};
-			
-			// console.log(songData);
-			
-			// dispatch(editSong(songData));
-			
-			// console.log("genre", genre);
-			// console.log("song", song);
 
 			dispatch(editSong(songData)).catch(async (res) => {
 				const data = await res.json();
 				if (data && data.errors) setErrors(data.errors);
 			});
-			// console.log('genre', genre);
-			// console.log('song', song);
+
 			setShowEditForm(false);
+			setEditSubmitted(true);
 		};
 		
 		useEffect(() => {
