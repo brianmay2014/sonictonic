@@ -74,12 +74,13 @@
   width: 200px;
   height: 27px;
   font-weight: 200;
+  font-size: 14px;
 }
 
 .comment-login .btn{
     position: relative;
-    top: 13.5px;
-    right: -5px;}
+    top: 15px;
+    right: -24px;}
 
 .comment-row{
     border-top : 1px var(--lightindigofade) solid;
