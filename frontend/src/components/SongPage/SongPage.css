@@ -18,10 +18,35 @@
     color: rgb(185, 226, 221);
 }
 
-/* .new-comment-form{
-    padding-top: 30px;
-} */
+.new-comment-form p{
+    font-weight: 200;
+    font-size: 12px;
+    margin-bottom: 0;
+}
 
+.new-comment-form{
+    box-shadow: 1px 1px 5px var(--lightishblue);
+}
+
+.comment-section{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-section input {
+    height: 100%;
+}
+
+.btn.add-comment-button{
+    font-size: 12px;
+    padding: 3px;
+    position: relative;
+    top: 11px;
+}
 .comment-display{
     margin: 30px auto;
     width: 70%;
