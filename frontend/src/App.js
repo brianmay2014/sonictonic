@@ -11,6 +11,7 @@ import TrackNavButtons from './components/Upload/NavTrackButtons';
 import UploadForm from './components/Upload/UploadForm';
 import YourTrackList from './components/Upload/YourTrackList';
 import SongPage from './components/SongPage';
+import Footer from './components/HomePage/Footer';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           {/* </Route> */}
 				</Switch>
 			)}
+			<Footer />
 		</>
   );
 }

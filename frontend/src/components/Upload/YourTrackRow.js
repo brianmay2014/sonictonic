@@ -6,7 +6,7 @@ import { editSong } from "../../store/song";
 // import DeleteTrackModal from "./DeleteTrackModal";
 import { deleteSong } from "../../store/song";
 
-function YourTrackRow({ song }) {
+function YourTrackRow({ song, genreName }) {
 	// const songId = song.id;
 
 	const [showEditForm, setShowEditForm] = useState(false);
@@ -14,6 +14,8 @@ function YourTrackRow({ song }) {
 	const [songName, setSongName] = useState(song.songName);
 	const [genre, setGenre] = useState('');
 
+	// console.log('this row has a genre of ',genreName);
+	// console.log('should be the same',genre)
 	// const [genre, setGenre] = useState(song?.Genre?.name);
 
 	const [errors, setErrors] = useState([]);
@@ -37,7 +39,7 @@ function YourTrackRow({ song }) {
 		// const songId = splitId[1];
 
 		// setGenre(song.Genre.genreName);
-		setGenre(genre);
+		setGenre(genreName);
 		setShowEditForm(true);
 	};
 	const editFormCancel = (e) => {
@@ -59,8 +61,8 @@ function YourTrackRow({ song }) {
 	
 	
 	// useEffect(() => {
-		// 	dispatch(getAllGenres());
-		// }, [dispatch]);
+	// 		dispatch(getAllGenres());
+	// 	}, [dispatch]);
 		
 		const handleEdit = async (e) => {
 			e.preventDefault();

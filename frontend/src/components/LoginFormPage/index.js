@@ -45,7 +45,7 @@ function LoginFormPage() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className='user-forms'>
+		<form onSubmit={handleSubmit} className="user-forms">
 			<ul className="form-errors">
 				{errors.map((error, idx) => (
 					<li key={idx}>{error}</li>
@@ -70,13 +70,17 @@ function LoginFormPage() {
 				/>
 			</label>
 			<div>
-			<button className="btn login-btn" type="submit">
-				Log In
-			</button>
-			<button className="btn login-btn" onClick={handleDemoLogin}>
-				Demo Login
-			</button>
+				<button className="btn login-btn" type="submit">
+					Log In
+				</button>
+				<button className="btn login-btn" onClick={handleDemoLogin}>
+					Demo Login
+				</button>
 
+				<div className="sign-up-link">
+					<p>Don't have an account?</p>
+					<a href="/signup">Sign up</a>
+				</div>
 			</div>
 		</form>
 	);

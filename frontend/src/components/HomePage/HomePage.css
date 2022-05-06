@@ -1,11 +1,19 @@
 .cover-image {
     background-image: url(https://images.pexels.com/photos/164828/pexels-photo-164828.jpeg);
-    width: 700px;
-    height: 350px;
+    position: relative;
+    width: 800px;
+    height: 400px;
     background-size: cover;
     border-radius: 16px;
     box-shadow: 3px 3px 6px;
-    margin: 50px auto;
+    margin: 100px auto;
+    
+}
+
+:root {
+    --footer1: rgb(109, 105, 126);
+    --footer2: rgb(106, 120, 133);
+    --footertext: #c4d0e1;
     
 }
 
@@ -15,4 +23,42 @@
     left: 50px;
     color: var(--lightbg);
     
+}
+
+.splash-overlay {
+    position: relative;
+    width: 800px;
+    height: 400px;
+background: linear-gradient(217deg, rgba(196,185,228,0.15), rgba(185,226,221,0.15) 70.71%),
+            linear-gradient(127deg, rgba(185,226,221,0.15), rgba(189,204,225,0.15) 70.71%),
+            linear-gradient(336deg, rgba(189,204,225,0.15), rgba(196,185,228,0.15) 70.71%);
+    border-radius: 16px;
+    margin: 0 auto; 
+    top: -500px;
+}
+
+.footer-backer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height: 25px;
+    background: linear-gradient(217deg, var(--footer1), var(--footer2) 70.71%),
+            linear-gradient(127deg, var(--footer2), var(--footer1) 70.71%);
+    margin: 0;
+
+}
+.footer {
+    color: var(--midpurple);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 5px auto;
+}
+
+.footer li, .footer a{
+    color: var(--footertext);
+    font-size: 12px;
+    font-weight: 300;
 }
