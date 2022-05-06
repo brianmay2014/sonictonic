@@ -16,6 +16,7 @@ const getSong = song => {
 };
 
 const getSongList = (songs) => {
+    // console.log('get all songs action creator');
     return {
         type: GET_ALL_SONGS,
         payload: songs,
@@ -60,8 +61,10 @@ export const getOneSong = (id) => async dispatch => {
 };
 
 export const getAllSongs = () => async (dispatch) => {
+    // console.log('top of get all songs');
 	const response = await csrfFetch(`/api/song/all`);
 
+    // console.log('after the fetch all in get all songs');
 	if (response.ok) {
 		const songs = await response.json();
 		dispatch(getSongList(songs));
@@ -99,7 +102,7 @@ export const createSong = (songData) => async (dispatch) => {
     body: JSON.stringify(songData)}
     );
 
-    console.log('hello from the inside');
+    // console.log('hello from the inside of create thunk');
 
     if (response.ok) {
         const song = await response.json();
@@ -130,16 +133,25 @@ const songReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_ALL_SONGS:
+            // console.log('reducer------top of get all songs');
             newState = {...state};
             const allSongs = {};
+            // console.log("reducer------ before for each get all songs");
             action.payload.forEach(song => {
+                // console.log(song);
                 allSongs[song.id] = song;
             });
-            return { ...allSongs, ...state };
+            // console.log("reducer------ after for each get all songs");
+            return { ...state, ...allSongs };
         case CREATE_SONG:
             newState = {...state};
-            newState.song = {...newState.song};
-            newState.song[action.payload.id] = action.payload;
+            // console.log('inside create song reducer');
+            // newState.song = {...newState.song};
+            // newState[action.payload.id] = action.payload;
+
+            //leave this one in
+            newState[action.payload.id] = action.payload;
+            // console.log('after assignment in reducer');
             return newState;
         case UPDATE_SONG:
             newState = {...state, [action.payload.id]: action.payload};

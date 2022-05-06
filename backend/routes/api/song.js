@@ -44,7 +44,17 @@ router.get(`/all`, asyncHandler(async function(req, res) {
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
 		songId = req.params.id;
-		const song = await Song.findByPk();
+        // console.log('songid inside get route for said song', songId)
+		const song = await Song.findByPk(songId);
+
+        // const song = await Song.findByPk();
+
+                // const retSong = Song.findByPk(song.id, {
+				// 	include: { model: Album },
+				// });
+
+				// return res.json(retSong);
+
 		return res.json(song);
 
         //Bill note
@@ -52,7 +62,7 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 	}));
 
 
-    //add validations here?
+
     router.post(
         `/`,
         songValidations.validateSongCreate,
@@ -67,16 +77,20 @@ router.get(`/all`, asyncHandler(async function(req, res) {
 
         const newAlbumId = album.dataValues.id;
 
+        
         const song = await Song.create({
             userId: currentUser,
             url: songUrl,
             albumId: newAlbumId,
             genreId,
             songName
-
+            
         });
+        
+        const retSong = Song.findByPk(song.id, { include: { model: Album } });
 
-        return res.json(song);
+        return res.json(retSong);
+        // return res.json(song);
 
     }))
 

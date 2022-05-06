@@ -27,7 +27,7 @@ const remove = (comment) => {
 
 
 export const getSongComments = (id) => async (dispatch) => {
-    console.log('thunk song id', id);
+    // console.log('thunk song id', id);
 	const response = await csrfFetch(`/api/song/${id}/comments`);
 
 	if (response.ok) {
@@ -46,7 +46,7 @@ export const createComment = (commentData) => async (dispatch) => {
     body: JSON.stringify(commentData)}
 	);
 
-	console.log('inside the thunk for createcommment');
+	// console.log('inside the thunk for createcommment');
 
 	if (response.ok) {
 		const comment = await response.json();
@@ -72,7 +72,7 @@ const initialState = { };
 
 const commentReducer = (state = initialState, action) => {
 	let newState;
-	console.log("action", action);
+	// console.log("action", action);
 	switch (action.type) {
 		case GET_SONG_COMMENTS:
 			// newState = { ...state };

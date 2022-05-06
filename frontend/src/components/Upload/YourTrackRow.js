@@ -12,13 +12,17 @@ function YourTrackRow({ song }) {
 	const [showEditForm, setShowEditForm] = useState(false);
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
-	const [genre, setGenre] = useState("");
+	const [genre, setGenre] = useState('');
+
+	// const [genre, setGenre] = useState(song?.Genre?.name);
+
 	const [errors, setErrors] = useState([]);
 
 	// const songsObj = useSelector((state) => state.song);
 	// const songList = Object.values(songsObj);
 
 	const genreList = useSelector((state) => state.genre.genres);
+	const songList = useSelector((state) => state.song);
 	const currentUser = useSelector((state) => state.session.user.id);
 
 	// const history = useHistory();
@@ -26,6 +30,13 @@ function YourTrackRow({ song }) {
 
 	const editFormSong = (e) => {
 		e.preventDefault();
+		// console.log(song);
+
+		// const editId = e.target.id;
+		// const splitId = editId.split("-");
+		// const songId = splitId[1];
+
+		// setGenre(song.Genre.genreName);
 		setGenre(genre);
 		setShowEditForm(true);
 	};
@@ -44,43 +55,50 @@ function YourTrackRow({ song }) {
 		setShowDeleteForm(false);
 	};
 
-	useEffect(() => {
-		dispatch(getAllGenres());
-	}, [dispatch]);
+	
+	
+	
+	// useEffect(() => {
+		// 	dispatch(getAllGenres());
+		// }, [dispatch]);
+		
+		const handleEdit = async (e) => {
+			e.preventDefault();
+			const editId = e.target.id;
+			const splitId = editId.split("-");
+			const songId = splitId[1];
+			
+			let genreArr = genreList.map((genre) => {
+				return genre.genreName;
+			});
+			
+			const genreId = genreArr.indexOf(genre) + 1;
+			
+			const songData = {
+				songId,
+				songName,
+				genreId,
+				currentUser,
+			};
+			
+			// console.log(songData);
+			
+			// dispatch(editSong(songData));
+			
+			// console.log("genre", genre);
+			// console.log("song", song);
 
-	const handleEdit = async (e) => {
-		e.preventDefault();
-		const editId = e.target.id;
-		const splitId = editId.split("-");
-		const songId = splitId[1];
-
-		let genreArr = genreList.map((genre) => {
-			return genre.genreName;
-		});
-
-		const genreId = genreArr.indexOf(genre) + 1;
-
-		const songData = {
-			songId,
-			songName,
-			genreId,
-			currentUser,
+			dispatch(editSong(songData)).catch(async (res) => {
+				const data = await res.json();
+				if (data && data.errors) setErrors(data.errors);
+			});
+			// console.log('genre', genre);
+			// console.log('song', song);
+			setShowEditForm(false);
 		};
-
-		console.log(songData);
-
-		// dispatch(editSong(songData));
-
-		dispatch(editSong(songData)).catch(async (res) => {
-			const data = await res.json();
-			if (data && data.errors) setErrors(data.errors);
-		});
-
-		setShowEditForm(false);
-	};
-
-	useEffect(() => {
-		if (errors.length === 0) {
+		
+		useEffect(() => {
+			if (errors.length === 0) {
 			setShowEditForm(false);
 		}
 		if (errors.length) {
@@ -107,7 +125,10 @@ function YourTrackRow({ song }) {
 		//hide form
 		setShowDeleteForm(false);
 	};
-
+	
+	if (!song) {
+		return 'loading...';
+	}
 	return (
 		<div>
 			<div className="your-track-row">
@@ -128,11 +149,14 @@ function YourTrackRow({ song }) {
 					</button>
 				</div>
 
+				<a href={`/song/${song.id}`}>
 				<img
 					className="row-img"
 					src={`${song?.Album?.imageUrl}`}
 					alt={`Album artwork for ${song?.Album?.albumName}`}
+					
 				/>
+				</a>
 				<div className="track-text">
 					<p>{song.songName}</p>
 					<p>by</p>

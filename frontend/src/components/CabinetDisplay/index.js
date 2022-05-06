@@ -33,13 +33,13 @@ function CabinetDisplay() {
     // }, [songList]);
 
 
+    if (!songList) return;
     
     return (
 		<div className="cabinet-display">
-			
-            {songList?.map((song) => {
+            {songList?.filter(song => song?.id).map((song) => {
                 return (
-                    <SongSquare key={song?.id} song={song} />
+                    <SongSquare key={`song${song?.id}`} song={song} />
                 )
             })}
 

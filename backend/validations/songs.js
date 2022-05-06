@@ -28,12 +28,26 @@ const songUrl = check("songUrl")
 	.notEmpty()
 	.withMessage("Must include a link to upload a song")
 	.isURL({ require_protocol: false, require_host: false })
-    .withMessage("Song Link must be a URL");
+	.withMessage("Song Link must be a URL")
+    .custom(value => {
+        if (!value.endsWith('.mp3')) {
+            throw Error("Please enter a mp3 link");
+        }
+        return true;
+    });
 const albumArt = check("albumArt")
 	.notEmpty()
 	.withMessage("Must include a link to upload a song")
 	.isURL({ require_protocol: false, require_host: false })
-	.withMessage("Album Art Link must be a URL");
+	.withMessage("Album Art Link must be a URL")
+    .custom(value => {
+        if (value.endsWith('.jpg') || value.endsWith(".jpeg") || (value.endsWith(".png"))) {
+         return true;
+        } else {
+            throw Error(`Please enter a .jpg, .jpeg, or .png link`);
+        }
+        // return true;
+    });
 const body = check("body")
 	.notEmpty()
 	.withMessage("Comment body cannot be empty");
