@@ -36,8 +36,8 @@ function YourTrackRow({ song }) {
 		// const splitId = editId.split("-");
 		// const songId = splitId[1];
 
-
-		setGenre(song.Genre.genreName);
+		// setGenre(song.Genre.genreName);
+		setGenre(genre);
 		setShowEditForm(true);
 	};
 	const editFormCancel = (e) => {
@@ -55,43 +55,50 @@ function YourTrackRow({ song }) {
 		setShowDeleteForm(false);
 	};
 
+	
+	
+	
 	// useEffect(() => {
-	// 	dispatch(getAllGenres());
-	// }, [dispatch]);
+		// 	dispatch(getAllGenres());
+		// }, [dispatch]);
+		
+		const handleEdit = async (e) => {
+			e.preventDefault();
+			const editId = e.target.id;
+			const splitId = editId.split("-");
+			const songId = splitId[1];
+			
+			let genreArr = genreList.map((genre) => {
+				return genre.genreName;
+			});
+			
+			const genreId = genreArr.indexOf(genre) + 1;
+			
+			const songData = {
+				songId,
+				songName,
+				genreId,
+				currentUser,
+			};
+			
+			// console.log(songData);
+			
+			// dispatch(editSong(songData));
+			
+			// console.log("genre", genre);
+			// console.log("song", song);
 
-	const handleEdit = async (e) => {
-		e.preventDefault();
-		const editId = e.target.id;
-		const splitId = editId.split("-");
-		const songId = splitId[1];
-
-		let genreArr = genreList.map((genre) => {
-			return genre.genreName;
-		});
-
-		const genreId = genreArr.indexOf(genre) + 1;
-
-		const songData = {
-			songId,
-			songName,
-			genreId,
-			currentUser,
+			dispatch(editSong(songData)).catch(async (res) => {
+				const data = await res.json();
+				if (data && data.errors) setErrors(data.errors);
+			});
+			// console.log('genre', genre);
+			// console.log('song', song);
+			setShowEditForm(false);
 		};
-
-		// console.log(songData);
-
-		// dispatch(editSong(songData));
-
-		dispatch(editSong(songData)).catch(async (res) => {
-			const data = await res.json();
-			if (data && data.errors) setErrors(data.errors);
-		});
-
-		setShowEditForm(false);
-	};
-
-	useEffect(() => {
-		if (errors.length === 0) {
+		
+		useEffect(() => {
+			if (errors.length === 0) {
 			setShowEditForm(false);
 		}
 		if (errors.length) {
