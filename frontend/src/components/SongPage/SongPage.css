@@ -1,5 +1,5 @@
 .music-container{
-    margin: 30px auto 0;
+    margin:60px auto 30px;
     border: 1px solid ;
     border-radius: 3px;
 
@@ -100,7 +100,7 @@
     position: absolute;
     font-size: .8em;
    background-color: var(--lightishblue);
-   right: 100px;
+   right: 220px;
    border: 2px var(--midindigo) solid;
    border-radius: 3px;
    color: var(--midblue);
@@ -108,6 +108,13 @@
    padding-left: 12px;
    padding-right: 5px;
    height: 90px;
+}
+
+@media screen and (max-width: 1400px){
+    .confirm-delete{
+        right:130px;
+    }
+    
 }
 
 
