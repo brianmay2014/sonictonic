@@ -92,10 +92,17 @@ A secure random CSRF token is generated on all forms that users fill in to preve
 BRAINSTORM TO BE EXANDED ON: 
 - Deleting related tables
   - Cascading of deletions of comments, when deleting a song with comments tied to it.
-- 
-  - 
-- 
-  - 
+- Store Issues
+  - Initially tried things without normalizing data, after refactoring to normalized data in my store editing and deleting was a total breeze. Using `Object.values` to convert the normalized into an array for mapping helped immensely.
+- Backend Routes
+  - Updates not saving in the database was solved by a simple `await song.save()`.
+  - Maintain the same pull from the data base for rendering, ran into some issues that were solved by ensuring everything was eagerly loaded with the same data
+- Undefined on first render
+  - Ran into many rendering issues on an initial load. Either used conditional chaining, or before the component was returned had an if statement for the variable causing undefined issues.
+- Heroku deployment
+  - Got more experience with deployment, especially with database updates. Ran into issues a couple times and just needed my database reset to fix the issue.
+- Learned to not only check what my variables were doing but what the status of the state, database was.
+- Learned to really 
 
 
 
