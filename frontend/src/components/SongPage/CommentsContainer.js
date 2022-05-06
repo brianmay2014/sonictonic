@@ -35,10 +35,10 @@ function CommentsContainer({ song, currentUser }) {
 
         const commentData = { body: commentBody, songId: id, userId: currentUserId}
 
-        console.log('commentdata, before dispatch', commentData);
+        // console.log('commentdata, before dispatch', commentData);
 
         dispatch(createComment(commentData));
-        console.log('after dispatch to thunk');
+        // console.log('after dispatch to thunk');
 
         // setErrors([]);
 
@@ -84,7 +84,6 @@ function CommentsContainer({ song, currentUser }) {
 					</div>
 			)}
 			<div className="comment-display">
-				{console.log("-*/-*/-*/-*/inside JSX")}
 				{songComments.map((comment) => {
 					return (
 						<CommentRow

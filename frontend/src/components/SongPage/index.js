@@ -14,12 +14,12 @@ function SongPage() {
     const dispatch = useDispatch();
 
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     const song = useSelector((state) => state.song[id]);
 
 const currentUser = useSelector((state) => state.session.user);
 
-    console.log(song);
+    // console.log(song);
 
         useEffect(() => {
 			dispatch(getAllSongs());
@@ -32,7 +32,7 @@ const currentUser = useSelector((state) => state.session.user);
 	const color = "#a2b3ca";
 
 	if (!title) return;
-	
+
     return (
 		<div className="song-page-container">
       <div className='music-container'>

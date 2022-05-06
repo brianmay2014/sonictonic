@@ -51,10 +51,10 @@ function App() {
 					<Route path='/song/:id'>
 						<SongPage />
 					</Route>
-          <Route path="/song/:songId">
+          {/* <Route path="/song/:songId"> */}
             {/* <BigPlayer /> */}
             {/* <SongComments /> */}
-          </Route>
+          {/* </Route> */}
 				</Switch>
 			)}
 		</>

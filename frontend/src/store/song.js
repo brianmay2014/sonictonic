@@ -16,7 +16,7 @@ const getSong = song => {
 };
 
 const getSongList = (songs) => {
-    console.log('get all songs action creator');
+    // console.log('get all songs action creator');
     return {
         type: GET_ALL_SONGS,
         payload: songs,
@@ -61,10 +61,10 @@ export const getOneSong = (id) => async dispatch => {
 };
 
 export const getAllSongs = () => async (dispatch) => {
-    console.log('top of get all songs');
+    // console.log('top of get all songs');
 	const response = await csrfFetch(`/api/song/all`);
 
-    console.log('after the fetch all in get all songs');
+    // console.log('after the fetch all in get all songs');
 	if (response.ok) {
 		const songs = await response.json();
 		dispatch(getSongList(songs));
@@ -102,7 +102,7 @@ export const createSong = (songData) => async (dispatch) => {
     body: JSON.stringify(songData)}
     );
 
-    console.log('hello from the inside of create thunk');
+    // console.log('hello from the inside of create thunk');
 
     if (response.ok) {
         const song = await response.json();

@@ -44,7 +44,7 @@ router.get(`/all`, asyncHandler(async function(req, res) {
     
     router.get(`/:id`, asyncHandler(async function(req, res) {
 		songId = req.params.id;
-        console.log('songid inside get route for said song', songId)
+        // console.log('songid inside get route for said song', songId)
 		const song = await Song.findByPk(songId);
 
         // const song = await Song.findByPk();

@@ -18,7 +18,6 @@ const YourTrackList = () => {
 
     return (
         <div className="your-track-list">
-            {console.log('track list render')}
             {songList?.filter(song => song.userId === currentUser)
             .map((song) => {
                 return (

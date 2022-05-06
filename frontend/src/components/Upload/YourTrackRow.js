@@ -55,9 +55,9 @@ function YourTrackRow({ song }) {
 		setShowDeleteForm(false);
 	};
 
-	useEffect(() => {
-		dispatch(getAllGenres());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(getAllGenres());
+	// }, [dispatch]);
 
 	const handleEdit = async (e) => {
 		e.preventDefault();
