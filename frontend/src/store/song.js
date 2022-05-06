@@ -147,6 +147,9 @@ const songReducer = (state = initialState, action) => {
             newState = {...state};
             // console.log('inside create song reducer');
             // newState.song = {...newState.song};
+            // newState[action.payload.id] = action.payload;
+
+            //leave this one in
             newState[action.payload.id] = action.payload;
             // console.log('after assignment in reducer');
             return newState;

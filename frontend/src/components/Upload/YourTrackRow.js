@@ -13,6 +13,9 @@ function YourTrackRow({ song }) {
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
 	const [genre, setGenre] = useState('');
+
+	// const [genre, setGenre] = useState(song?.Genre?.name);
+
 	const [errors, setErrors] = useState([]);
 
 	// const songsObj = useSelector((state) => state.song);
@@ -52,9 +55,9 @@ function YourTrackRow({ song }) {
 		setShowDeleteForm(false);
 	};
 
-	// useEffect(() => {
-	// 	dispatch(getAllGenres());
-	// }, [dispatch]);
+	useEffect(() => {
+		dispatch(getAllGenres());
+	}, [dispatch]);
 
 	const handleEdit = async (e) => {
 		e.preventDefault();
@@ -139,11 +142,14 @@ function YourTrackRow({ song }) {
 					</button>
 				</div>
 
+				<a href={`/song/${song.id}`}>
 				<img
 					className="row-img"
 					src={`${song?.Album?.imageUrl}`}
 					alt={`Album artwork for ${song?.Album?.albumName}`}
+					
 				/>
+				</a>
 				<div className="track-text">
 					<p>{song.songName}</p>
 					<p>by</p>

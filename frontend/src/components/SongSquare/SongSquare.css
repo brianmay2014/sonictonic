@@ -5,6 +5,7 @@
 }
 .song-square {
     width: 150px;
+    height: 200px;
     border: 0.5px transparent solid;
     display: flex;
     flex-direction: column;
@@ -23,9 +24,9 @@
 
 }
 
-
  h4 {
-     margin: 0;
+     margin: 0 auto;
+     text-align: center;
      margin-top: 10px;
      height: 2em;
      color: var(--darkblue);
@@ -33,8 +34,10 @@
 
  h5 {
     height: 2em;
+    max-width: 100px;
     text-align: center; 
     margin: 0;
     color: var(--lightblue);
     font-weight: 300;
+    padding-bottom: 15px;
  }
