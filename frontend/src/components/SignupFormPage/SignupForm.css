@@ -1,0 +1,26 @@
+.log-in-link {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+}
+.log-in-link p{
+    margin: 18px auto 5px;
+    color: var(--darkblue);
+  font-size: smaller;
+text-align: center;
+}
+
+.log-in-link a{
+    color: var(--midindigo);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid var(--midindigo);
+    padding: 3px;
+    border-radius: 3px;
+    background: linear-gradient(217deg, var(--lightestindigo), var(--lightestfoam) 70.71%),
+            linear-gradient(127deg, var(--lightestfoam), var(--lightestindigo) 70.71%);
+}
+.btn.login-btn {
+    margin: 0 10px;
+}
