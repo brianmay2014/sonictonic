@@ -5,7 +5,7 @@ import { getAllSongs } from "../../store/song";
 import { useParams } from 'react-router-dom';
 import MusicPlayer from "./MusicPlayer";
 import CommentsContainer from "./CommentsContainer";
-import AudioPlayer from './AudioPlayer';
+// import AudioPlayer from './AudioPlayer';
 
 
 
@@ -27,9 +27,9 @@ const currentUser = useSelector((state) => state.session.user);
 
     const title = useSelector((state) => state.song[id]?.songName);
 	const artist = useSelector((state) => state.song[id]?.User.username);
-	const audioSrc = useSelector((state) => state.song[id]?.url);
+	// const audioSrc = useSelector((state) => state.song[id]?.url);
 	const image = useSelector((state) => state.song[id]?.Album.imageUrl);
-	const color = "#a2b3ca";
+	// const color = "#a2b3ca";
 
 	if (!title) return;
 
