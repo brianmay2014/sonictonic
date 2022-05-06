@@ -12,7 +12,7 @@ function YourTrackRow({ song }) {
 	const [showEditForm, setShowEditForm] = useState(false);
 	const [showDeleteForm, setShowDeleteForm] = useState(false);
 	const [songName, setSongName] = useState(song.songName);
-	const [genre, setGenre] = useState(song?.Genre?.name);
+	const [genre, setGenre] = useState('');
 	const [errors, setErrors] = useState([]);
 
 	// const songsObj = useSelector((state) => state.song);
@@ -27,7 +27,14 @@ function YourTrackRow({ song }) {
 
 	const editFormSong = (e) => {
 		e.preventDefault();
-		setGenre(genre);
+		// console.log(song);
+
+		// const editId = e.target.id;
+		// const splitId = editId.split("-");
+		// const songId = splitId[1];
+
+
+		setGenre(song.Genre.genreName);
 		setShowEditForm(true);
 	};
 	const editFormCancel = (e) => {
@@ -68,7 +75,7 @@ function YourTrackRow({ song }) {
 			currentUser,
 		};
 
-		console.log(songData);
+		// console.log(songData);
 
 		// dispatch(editSong(songData));
 
@@ -114,7 +121,6 @@ function YourTrackRow({ song }) {
 	}
 	return (
 		<div>
-			{console.log(`-----------------track row for ${song.id}`)}
 			<div className="your-track-row">
 				<div className="track-button-holder">
 					<button

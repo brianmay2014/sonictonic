@@ -138,17 +138,17 @@ const songReducer = (state = initialState, action) => {
             const allSongs = {};
             // console.log("reducer------ before for each get all songs");
             action.payload.forEach(song => {
-                console.log(song);
+                // console.log(song);
                 allSongs[song.id] = song;
             });
             // console.log("reducer------ after for each get all songs");
             return { ...state, ...allSongs };
         case CREATE_SONG:
             newState = {...state};
-            console.log('inside create song reducer');
+            // console.log('inside create song reducer');
             // newState.song = {...newState.song};
             newState[action.payload.id] = action.payload;
-            console.log('after assignment in reducer');
+            // console.log('after assignment in reducer');
             return newState;
         case UPDATE_SONG:
             newState = {...state, [action.payload.id]: action.payload};
