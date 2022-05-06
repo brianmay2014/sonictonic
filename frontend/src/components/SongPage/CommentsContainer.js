@@ -38,6 +38,8 @@ function CommentsContainer({ song, currentUser }) {
         // console.log('commentdata, before dispatch', commentData);
 
         dispatch(createComment(commentData));
+
+		setCommentBody('');
         // console.log('after dispatch to thunk');
 
         // setErrors([]);
