@@ -98,6 +98,7 @@ const UploadForm = () => {
 			<input
 				type="text"
 				value={songUrl}
+				// value="https://sonictonicsongseeders.s3.us-west-1.amazonaws.com/sonictonicseeder/PinkStrat/07AlreadyYours.mp3"
 				required
 				onChange={(e) => setSongUrl(e.target.value)}
 			/>
@@ -118,6 +119,7 @@ const UploadForm = () => {
 			<input
 				type="text"
 				value={albumArt}
+				// value="https://image.shutterstock.com/image-illustration/nice-france-14022022-cartoon-character-260nw-2122849208.jpg"
 				required
 				onChange={(e) => setAlbumArt(e.target.value)}
 			/>

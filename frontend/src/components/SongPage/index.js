@@ -31,6 +31,8 @@ const currentUser = useSelector((state) => state.session.user);
 	const image = useSelector((state) => state.song[id]?.Album.imageUrl);
 	const color = "#a2b3ca";
 
+	if (!title) return;
+	
     return (
 		<div className="song-page-container">
       <div className='music-container'>
