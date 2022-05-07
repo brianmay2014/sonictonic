@@ -9,11 +9,17 @@ SonicTonic is a full stack application that allows user to explore new music. Wh
 ### <a href='https://github.com/brianmay2014/sonictonic/wiki'>Git Wiki</a>
 <br>
 
-![Home Page](readmeimages/Homepage.png) **_Home Page_**
+**_Home Page_**
 
-![Cabinet View](readmeimages/CabinetView.png) **_Cabinet View_** - View all of the songs uploaded to SonicTonic
+<img src="readmeimages/Homepage.png" alt='Home Page' width='650'>
 
-![Song Page](readmeimages/SongPage.png) **_Song Page_** - Every song has it's own dedicated page for listening to and sharing your thoughts about the song.
+**_Cabinet View_** - View all of the songs uploaded to SonicTonic
+
+<img src="readmeimages/CabinetView.png" alt='Cabinet View Page' width='650'>
+
+**_Song Page_** - Every song has it's own dedicated page for listening to and sharing your thoughts about the song.
+
+<img src="readmeimages/SongPage.png" alt='Song Page' width='650'>
 
 
 
@@ -39,6 +45,8 @@ SonicTonic is built on React and Redux in the frontend with an Express backend, 
 
 SonicTonic depends on backend for queries and routes, but uses the Redux store and React components for a snappy frontend.
 
+<br>
+
 ### Frontend Technologies Used
 
 #### React
@@ -56,6 +64,8 @@ SonicTonic uses CSS to style all of the HTML documents.
 #### Javascript
 
 Javascript is used heavily on the frontend with React and Redux to create a responsive app.
+
+<br>
 
 ### Backend Overview
 
@@ -89,8 +99,10 @@ SonicTonic values the security of users' passwords, that is why all of the passw
 
 A secure random CSRF token is generated on all forms that users fill in to prevent CSRF attacks.
 
-##Challenges and Solutions
-BRAINSTORM TO BE EXANDED ON: 
+<br>
+
+## Challenges and Solutions
+
 - Deleting related tables
   - Cascading of deletions of comments, when deleting a song with comments tied to it.
 - Store Issues
@@ -103,11 +115,12 @@ BRAINSTORM TO BE EXANDED ON:
 - Heroku deployment
   - Got more experience with deployment, especially with database updates. Ran into issues a couple times and just needed my database reset to fix the issue.
 - Learned to not only check what my variables were doing but what the status of the state, database was.
-- Learned to really 
+- Planning out my routes and wire frames the week before really helped development move quickly
+    - I found it very beneficial in the overall flow to create the components in React, get a basic styling finished before moving onto the functionality. I started from the user experience then worked through the full stack's code with the same flow every time which really helped my visualize how the components worked with the database and store more fluently.
 
 
 
 
 ## Conclusion and Next Steps
 
-The next step for SonicTonic is to add playlists, likes, user profiles and a more robust albums feature. The end goal would be to have a robust platform for people to be able to share and talk about their music.
+The next step for SonicTonic is to add playlists, likes, search functionality, user profiles and a more robust albums feature. The end goal would be to have a robust platform for people to be able to share and talk about their music.
