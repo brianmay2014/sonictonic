@@ -19,7 +19,7 @@ function YourTrackRow({ song, genreName }) {
 	// const songList = Object.values(songsObj);
 
 	const genreList = useSelector((state) => state.genre.genres);
-	const songList = useSelector((state) => state.song);
+	// const songList = useSelector((state) => state.song);
 	const currentUser = useSelector((state) => state.session.user.id);
 
 	// const history = useHistory();
