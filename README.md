@@ -9,18 +9,25 @@ SonicTonic is a full stack application that allows user to explore new music. Wh
 ### <a href='https://github.com/brianmay2014/sonictonic/wiki'>Git Wiki</a>
 <br>
 
-**_Home Page_**
+## **_Home Page_**
 
 <img src="readmeimages/Homepage.png" alt='Home Page' width='650'>
 
-**_Cabinet View_** - View all of the songs uploaded to SonicTonic
+<br>
+
+## **_Cabinet View_**
+&emsp; View all of the songs uploaded to SonicTonic
 
 <img src="readmeimages/CabinetView.png" alt='Cabinet View Page' width='650'>
 
-**_Song Page_** - Every song has it's own dedicated page for listening to and sharing your thoughts about the song.
+<br>
+
+## **_Song Page_**
+&emsp;  Every song has it's own dedicated page for listening to and sharing your thoughts about the song.
 
 <img src="readmeimages/SongPage.png" alt='Song Page' width='650'>
 
+<br>
 
 ## Features
 - Sign up / login with email or username
