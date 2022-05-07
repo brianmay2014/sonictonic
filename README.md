@@ -1,6 +1,13 @@
-# Good Hikes
+# SonicTonic
 
-SonicTonic https://sonictonic.herokuapp.com/
+## SonicTonic at a Glance
+
+SonicTonic is a full stack application that allows user to explore new music. When signing up, the username chosen will double as the display name.Users are not required to sign up for an account if they just want to listen to music and read comments. Logged in users can add comments to or delete comments from songs on the app, they can also add their own song to the app, with the ability to edit and delete. Any song the user shares will be instantly available to anyone accessing the site. Currently SonicTonic is seeded with 5 different albums by various artists to give the feel for the site.  There is a Demo user available to browse the logged in features, and a couple other users used in to fill out seed data for comments.
+
+## <a href='https://sonictonic.herokuapp.com/'>SonicTonic Live Demo </a>
+
+### <a href='https://github.com/brianmay2014/sonictonic/wiki'>Git Wiki</a>
+<br>
 
 ![Home Page](readmeimages/Homepage.png) **_Home Page_**
 
@@ -8,17 +15,11 @@ SonicTonic https://sonictonic.herokuapp.com/
 
 ![Song Page](readmeimages/SongPage.png) **_Song Page_** - Every song has it's own dedicated page for listening to and sharing your thoughts about the song.
 
-![YourTrackPage](readmeimages/YourTrackPage.png) **_Cabinet View_** - As a signed in user, you can edit or delete the tracks you have uploaded.
 
 
-Git Wiki https://github.com/brianmay2014/sonictonic/wiki
-
-## SonicTonic at a Glance
-
-SonicTonic is a full stack application that allows user to explore new music. When signing up, the username chosen will double as the display name.Users are not required to sign up for an account if they just want to listen to music and read comments. Logged in users can add comments to or delete comments from songs on the app, they can also add their own song to the app, with the ability to edit and delete. Any song the user shares will be instantly available to anyone accessing the site. Currently SonicTonic is seeded with 5 different albums by various artists to give the feel for the site.  There is a Demo user available to browse the logged in features, and a couple other users used in to fill out seed data for comments.
 
 ## Getting Development Environment Up And Running
-- Git Clone the repo to your local machine
+- Git Clone the repo to your local machine (latest main branch repo)
 - Install Dependencies:
   - While inside `/backend` Run `npm install`
   - While inside `/frontend` Run `npm install`
@@ -52,7 +53,7 @@ SonicTonic uses Redux throughout to make limited backend calls for each page, an
 
 SonicTonic uses CSS to style all of the HTML documents.
 
-#### Javacript
+#### Javascript
 
 Javascript is used heavily on the frontend with React and Redux to create a responsive app.
 
