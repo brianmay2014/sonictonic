@@ -22,7 +22,18 @@ SonicTonic is a full stack application that allows user to explore new music. Wh
 <img src="readmeimages/SongPage.png" alt='Song Page' width='650'>
 
 
-
+## Features
+- Sign up / login with email or username
+- Logged out users can:
+    - Browse the cabinet for all songs uploaded to SonicTonic
+    - Listen to any song uploaded with the beautiful minimalist player on each song's page
+    - View comments on all songs
+- Logged in users can: 
+    - Upload new songs
+    - Edit their uploaded songs titles and/or genres
+    - Delete their uploaded songs
+    - Comment on any song on the site
+    - Delete their own comments on any song
 
 ## Getting Development Environment Up And Running
 - Git Clone the repo to your local machine (latest main branch repo)
