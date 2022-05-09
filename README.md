@@ -53,7 +53,21 @@ SonicTonic is a full stack application that allows user to explore new music. Wh
 - Start servers:
   - While inside `/backend` Run `npm start`
   - While inside `/frontend` Run `npm start`
-- Enjoy
+- Enjoy.
+
+## Heroku Deployment
+- Create a Heroku account if you don't have one already
+- Create a new application in the dashboard, for example "my-sonictonic"
+- Under the "Resources" tab, click "Find More add-ons", and add "Heroku Postgres"
+- Install <a href='https://devcenter.heroku.com/articles/heroku-cli'>Heroku CLI</a>
+- Login to Heroku by running this in the terminal `heroku login`
+- Inside the repo folder, add Heroku as a remote to the project repo by typing `heroku git:remote -a <name-of-Heroku-app>`
+- Back in Heroku, inside the "Settings" page of your newly created app, click on "Reveal Config Vars", and add the variables from the .env file for `JWT_EXPIRES_IN` and `JWT_SECRET` for Heroku.
+- Push the project up to Heroku by typing `git push heroku main`
+- To migrate and seed the data base, run the following commands:
+    - `heroku run npm run sequelize db:migrate`
+    - `heroku run npm run sequelize db:seed:all`
+- Enjoy.
 
 ## Application Architecture
 
@@ -141,4 +155,7 @@ A secure random CSRF token is generated on all forms that users fill in to preve
 
 ## Conclusion and Next Steps
 
-The next step for SonicTonic is to add playlists, likes, search functionality, user profiles and a more robust albums feature. The end goal would be to have a robust platform for people to be able to share and talk about their music.
+The next step for SonicTonic is to add AWS support for uploads, along with playlists, likes, search functionality, user profiles and a more robust albums feature. The end goal would be to have a robust platform for people to be able to share and talk about their music.
+<br>
+<br>
+For any questions about any instructions, features, or any requested features, I'm all ears! Send me an e-mail at <a href='mailto:brianmay2014@gmail.com'>brianmay2014@gmail.com</a>, and I'll get back to you shortly!
